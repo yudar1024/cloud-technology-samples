@@ -22,7 +22,7 @@
     "serviceDiscoveryType": false,
     "buildTool": "maven",
     "enableSwaggerCodegen": false,
-    "jwtSecretKey": "MTdmYTM1NDk0OTdlMTUzNDc0YWVjYzAyMTJkNmY0OTRmOTYwMTIwOWY5ZTg0ZTlkYjY3ZDhiMjhkYWM3OGVkYmNjMjY5NTdhMmE1NTFjOTMyMzZlN2RkMDYzNjZjMDg4Mjc2ODRjZjIzYTJiMGVlNzQ2ZjBlNzRiMzcyNGY2N2I=",
+    "jwtSecretKey": "MmUzM2MxZDc0ZjY4NTE0ZWRkOWMyZTM1MjA5MjJlNmEyMDgyM2RmZDIxNTI2OTg0YzUyYWY1Yzk1YWNhZGM2N2Q1YjEyZDhhNDJkMGU1MGY2OGMwOWFhNWIyZTQzYTlhN2VjMTg5MDQxZjAwZjVkN2YyYzkxMzcyMjRhY2FkNGI=",
     "testFrameworks": [],
     "jhiPrefix": "jhi",
     "entitySuffix": "",
@@ -32,8 +32,7 @@
     "clientPackageManager": "npm",
     "nativeLanguage": "zh-cn",
     "languages": [
-      "zh-cn",
-      "en"
+      "zh-cn"
     ],
     "skipClient": true
   }
