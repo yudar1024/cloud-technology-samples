@@ -70,7 +70,7 @@ spring:
     cache: false
 
 server:
-  port: 8080
+  port: 8090
 
 # ===================================================================
 # JHipster specific properties
@@ -113,6 +113,17 @@ jhipster:
       host: localhost
       port: 5000
       queue-size: 512
+
+keycloak:
+    realm : myapp
+    auth-server-url : 'http://127.0.0.1:8080/auth'
+    ssl-required : external
+    bearer-only : true
+    resource : web_app # client id
+    credentials:
+      secret : f3adb7ed-7965-4f77-85ba-ca10c98d1793
+    use-resource-role-mappings : true
+    principal-attribute : preferred_username
 # ===================================================================
 # Application specific properties
 # Add your own application properties here, see the ApplicationProperties class
