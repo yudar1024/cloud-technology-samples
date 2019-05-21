@@ -10,24 +10,36 @@ import org.keycloak.adapters.springsecurity.filter.KeycloakAuthenticatedActionsF
 import org.keycloak.adapters.springsecurity.filter.KeycloakAuthenticationProcessingFilter;
 import org.keycloak.adapters.springsecurity.filter.KeycloakPreAuthActionsFilter;
 import org.keycloak.adapters.springsecurity.filter.KeycloakSecurityContextRequestFilter;
+import org.keycloak.adapters.springsecurity.management.HttpSessionManager;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.devtools.restart.ConditionalOnInitializedRestarter;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.authority.mapping.GrantedAuthoritiesMapper;
 import org.springframework.security.core.authority.mapping.SimpleAuthorityMapper;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.session.NullAuthenticatedSessionStrategy;
 import org.springframework.security.web.authentication.session.SessionAuthenticationStrategy;
 import org.springframework.web.filter.CorsFilter;
 import org.zalando.problem.spring.web.advice.security.SecurityProblemSupport;
 
+import java.util.Locale;
+@Configuration
+@EnableWebSecurity
 @Import(SecurityProblemSupport.class)
-@KeycloakConfiguration
+// don't definition bean (use @bean) in this class , otherwise you will encounter no sevlet context error move the bean def to Keycloak beans configurations
 public class KeyCloakSecurityConfiguration extends KeycloakWebSecurityConfigurerAdapter {
 
     public KeyCloakSecurityConfiguration(CorsFilter corsFilter, SecurityProblemSupport problemSupport) {
@@ -43,17 +55,15 @@ public class KeyCloakSecurityConfiguration extends KeycloakWebSecurityConfigurer
         return new NullAuthenticatedSessionStrategy();
     }
 
-    @Bean
-    public GrantedAuthoritiesMapper grantedAuthoritiesMapper() {
-        SimpleAuthorityMapper mapper = new SimpleAuthorityMapper();
-        mapper.setConvertToUpperCase(true);
-        return mapper;
-    }
+
+
 
     @Override
     protected KeycloakAuthenticationProvider keycloakAuthenticationProvider() {
         final KeycloakAuthenticationProvider provider = super.keycloakAuthenticationProvider();
-        provider.setGrantedAuthoritiesMapper(grantedAuthoritiesMapper());
+        SimpleAuthorityMapper mapper = new SimpleAuthorityMapper();
+        mapper.setConvertToUpperCase(true);
+        provider.setGrantedAuthoritiesMapper(mapper);
         return provider;
     }
 
@@ -101,42 +111,59 @@ public class KeyCloakSecurityConfiguration extends KeycloakWebSecurityConfigurer
             .antMatchers("/management/**").hasAuthority(AuthoritiesConstants.ADMIN)
             .antMatchers("/**").permitAll();
     }
+
+
 // Spring Boot 2.1 also disables spring.main.allow-bean-definition-overriding by default. This can mean that an BeanDefinitionOverrideException will be encountered if a Configuration class extending KeycloakWebSecurityConfigurerAdapter registers a bean that is already detected by a @ComponentScan
-    @Bean
-    public KeycloakConfigResolver keycloakConfigResolver() {
-        return new KeycloakSpringBootConfigResolver();
-    }
+//set spring.main.allow-bean-definition-overriding=true you do not need the follow
 
 
-    @Bean
-    public FilterRegistrationBean keycloakAuthenticationProcessingFilterRegistrationBean(
-        KeycloakAuthenticationProcessingFilter filter) {
-        FilterRegistrationBean registrationBean = new FilterRegistrationBean(filter);
-        registrationBean.setEnabled(false);
-        return registrationBean;
-    }
+//    @Bean
+//    public FilterRegistrationBean keycloakAuthenticationProcessingFilterRegistrationBean(
+//        KeycloakAuthenticationProcessingFilter filter) {
+//        FilterRegistrationBean registrationBean = new FilterRegistrationBean(filter);
+//        registrationBean.setEnabled(false);
+//        return registrationBean;
+//    }
+//
+//    @Bean
+//    public FilterRegistrationBean keycloakPreAuthActionsFilterRegistrationBean(
+//        KeycloakPreAuthActionsFilter filter) {
+//        FilterRegistrationBean registrationBean = new FilterRegistrationBean(filter);
+//        registrationBean.setEnabled(false);
+//        return registrationBean;
+//    }
+//
+//    @Bean
+//    public FilterRegistrationBean keycloakAuthenticatedActionsFilterBean(
+//        KeycloakAuthenticatedActionsFilter filter) {
+//        FilterRegistrationBean registrationBean = new FilterRegistrationBean(filter);
+//        registrationBean.setEnabled(false);
+//        return registrationBean;
+//    }
+//
+//    @Bean
+//    public FilterRegistrationBean keycloakSecurityContextRequestFilterBean(
+//        KeycloakSecurityContextRequestFilter filter) {
+//        FilterRegistrationBean registrationBean = new FilterRegistrationBean(filter);
+//        registrationBean.setEnabled(false);
+//        return registrationBean;
+//    }
+//
 
-    @Bean
-    public FilterRegistrationBean keycloakPreAuthActionsFilterRegistrationBean(
-        KeycloakPreAuthActionsFilter filter) {
-        FilterRegistrationBean registrationBean = new FilterRegistrationBean(filter);
-        registrationBean.setEnabled(false);
-        return registrationBean;
-    }
+//
+//    @Bean
+//    @Override
+//    @ConditionalOnMissingBean(HttpSessionManager.class)
+//    protected HttpSessionManager httpSessionManager() {
+//        return new HttpSessionManager();
+//    }
 
-    @Bean
-    public FilterRegistrationBean keycloakAuthenticatedActionsFilterBean(
-        KeycloakAuthenticatedActionsFilter filter) {
-        FilterRegistrationBean registrationBean = new FilterRegistrationBean(filter);
-        registrationBean.setEnabled(false);
-        return registrationBean;
-    }
+//    @Bean
+//    public MessageSource messageSource() {
+//        Locale.setDefault(Locale.SIMPLIFIED_CHINESE);
+//        ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
+//        messageSource.addBasenames("classpath:/i18n/messages" );
+//        return messageSource;
+//    }
 
-    @Bean
-    public FilterRegistrationBean keycloakSecurityContextRequestFilterBean(
-        KeycloakSecurityContextRequestFilter filter) {
-        FilterRegistrationBean registrationBean = new FilterRegistrationBean(filter);
-        registrationBean.setEnabled(false);
-        return registrationBean;
-    }
 }
