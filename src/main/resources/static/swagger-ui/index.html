@@ -51,7 +51,9 @@
         ],
         layout: "StandaloneLayout"
       })
-      ui.preauthorizeApiKey("Authorization","Bearer")
+     ui.authActions.authorize({JWT: {name: "JWT", schema: {type: "apiKey", in: "header", name: "Authorization", description: ""}, value: "Bearer <JWT>"}})
+
+
       // End Swagger UI call region
 
       window.ui = ui
