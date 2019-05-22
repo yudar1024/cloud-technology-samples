@@ -85,6 +85,7 @@
         <junit.itReportFolder>${project.testresult.directory}/integrationTest</junit.itReportFolder>
         <!-- jhipster-needle-maven-property -->
         <keycloak.version>6.0.1</keycloak.version>
+        <swagger-ui.version>2.9.2</swagger-ui.version>
     </properties>
 
     <dependencyManagement>
@@ -152,6 +153,11 @@
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-bean-validators</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${swagger-ui.version}</version>
         </dependency>
         <dependency>
             <groupId>com.zaxxer</groupId>
