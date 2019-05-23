@@ -26,11 +26,8 @@ import java.util.List;
 @Configuration
 public class SwaggerConfiguration {
 
-    @Bean
-    public SecurityConfiguration security() {
-        return new SecurityConfiguration(null, null, null, null, "Bearer access_token", ApiKeyVehicle.HEADER, "Authorization", ",");
-    }
 
+//add a group
     @Bean
     public Docket api() throws IOException, URISyntaxException {
         final List<ResponseMessage> globalResponses = Arrays.asList(

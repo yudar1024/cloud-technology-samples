@@ -154,6 +154,8 @@
             <groupId>io.springfox</groupId>
             <artifactId>springfox-bean-validators</artifactId>
         </dependency>
+<!--        add swagger-ui the url is http://localhost:8090/swagger-ui.html-->
+<!--        https://springfox.github.io/springfox/docs/snapshot/#springfox-swagger-ui-->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
