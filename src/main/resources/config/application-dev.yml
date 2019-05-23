@@ -91,14 +91,14 @@ jhipster:
     exposed-headers: 'Authorization,Link,X-Total-Count'
     allow-credentials: true
     max-age: 1800
-  security:
-    authentication:
-      jwt:
-        # This token must be encoded using Base64 and be at least 256 bits long (you can type `openssl rand -base64 64` on your command line to generate a 512 bits one)
-        base64-secret: MTg1OGY0M2U4ODhjYzlkMmM1MjIwYjI4NjJhMmI2N2ExODEyNGVjZDM2NjQzZWRlNDNjM2VhOTgyYmQ3ZjY3ZThiN2Y4N2JhMjhkODI1OTQ4Y2Q5Y2IzN2U4MWU4N2Q3ZGQ2YzRhMWFhYjM0ODUzOGQ2NDM4ZGUwOTgwZjI1MzA=
-        # Token is valid 24 hours
-        token-validity-in-seconds: 86400
-        token-validity-in-seconds-for-remember-me: 2592000
+#  security:
+#    authentication:
+#      jwt:
+#        # This token must be encoded using Base64 and be at least 256 bits long (you can type `openssl rand -base64 64` on your command line to generate a 512 bits one)
+#        base64-secret: MTg1OGY0M2U4ODhjYzlkMmM1MjIwYjI4NjJhMmI2N2ExODEyNGVjZDM2NjQzZWRlNDNjM2VhOTgyYmQ3ZjY3ZThiN2Y4N2JhMjhkODI1OTQ4Y2Q5Y2IzN2U4MWU4N2Q3ZGQ2YzRhMWFhYjM0ODUzOGQ2NDM4ZGUwOTgwZjI1MzA=
+#        # Token is valid 24 hours
+#        token-validity-in-seconds: 86400
+#        token-validity-in-seconds-for-remember-me: 2592000
   mail: # specific JHipster mail property, for standard properties see MailProperties
     from: my@localhost
     base-url: http://127.0.0.1:8080
@@ -115,15 +115,15 @@ jhipster:
       queue-size: 512
 
 keycloak:
-    realm : myapp
+    realm : Myapp
     auth-server-url : 'http://127.0.0.1:8080/auth'
-    ssl-required : external
+    ssl-required : NONE
     bearer-only : true
     resource : web_app # client id
     credentials:
       secret : f3adb7ed-7965-4f77-85ba-ca10c98d1793
     use-resource-role-mappings : true
-    principal-attribute : preferred_username
+
 # ===================================================================
 # Application specific properties
 # Add your own application properties here, see the ApplicationProperties class
