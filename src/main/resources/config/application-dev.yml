@@ -117,7 +117,7 @@ jhipster:
 keycloak:
     realm : Myapp
     auth-server-url : 'http://127.0.0.1:8080/auth'
-    ssl-required : NONE
+    ssl-required : none
     bearer-only : true
     resource : web_app # client id
     credentials:
