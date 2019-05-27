@@ -116,47 +116,47 @@ public class KeyCloakSecurityConfiguration extends KeycloakWebSecurityConfigurer
 // Spring Boot 2.1 also disables spring.main.allow-bean-definition-overriding by default. This can mean that an BeanDefinitionOverrideException will be encountered if a Configuration class extending KeycloakWebSecurityConfigurerAdapter registers a bean that is already detected by a @ComponentScan
 //set spring.main.allow-bean-definition-overriding=true you do not need the follow
 
-
-    @Bean
-    public FilterRegistrationBean keycloakAuthenticationProcessingFilterRegistrationBean(
-        KeycloakAuthenticationProcessingFilter filter) {
-        FilterRegistrationBean registrationBean = new FilterRegistrationBean(filter);
-        registrationBean.setEnabled(false);
-        return registrationBean;
-    }
-
-    @Bean
-    public FilterRegistrationBean keycloakPreAuthActionsFilterRegistrationBean(
-        KeycloakPreAuthActionsFilter filter) {
-        FilterRegistrationBean registrationBean = new FilterRegistrationBean(filter);
-        registrationBean.setEnabled(false);
-        return registrationBean;
-    }
-
-    @Bean
-    public FilterRegistrationBean keycloakAuthenticatedActionsFilterBean(
-        KeycloakAuthenticatedActionsFilter filter) {
-        FilterRegistrationBean registrationBean = new FilterRegistrationBean(filter);
-        registrationBean.setEnabled(false);
-        return registrationBean;
-    }
-
-    @Bean
-    public FilterRegistrationBean keycloakSecurityContextRequestFilterBean(
-        KeycloakSecurityContextRequestFilter filter) {
-        FilterRegistrationBean registrationBean = new FilterRegistrationBean(filter);
-        registrationBean.setEnabled(false);
-        return registrationBean;
-    }
-
-
-
-    @Bean
-    @Override
-    @ConditionalOnMissingBean(HttpSessionManager.class)
-    protected HttpSessionManager httpSessionManager() {
-        return new HttpSessionManager();
-    }
+//
+//    @Bean
+//    public FilterRegistrationBean keycloakAuthenticationProcessingFilterRegistrationBean(
+//        KeycloakAuthenticationProcessingFilter filter) {
+//        FilterRegistrationBean registrationBean = new FilterRegistrationBean(filter);
+//        registrationBean.setEnabled(false);
+//        return registrationBean;
+//    }
+//
+//    @Bean
+//    public FilterRegistrationBean keycloakPreAuthActionsFilterRegistrationBean(
+//        KeycloakPreAuthActionsFilter filter) {
+//        FilterRegistrationBean registrationBean = new FilterRegistrationBean(filter);
+//        registrationBean.setEnabled(false);
+//        return registrationBean;
+//    }
+//
+//    @Bean
+//    public FilterRegistrationBean keycloakAuthenticatedActionsFilterBean(
+//        KeycloakAuthenticatedActionsFilter filter) {
+//        FilterRegistrationBean registrationBean = new FilterRegistrationBean(filter);
+//        registrationBean.setEnabled(false);
+//        return registrationBean;
+//    }
+//
+//    @Bean
+//    public FilterRegistrationBean keycloakSecurityContextRequestFilterBean(
+//        KeycloakSecurityContextRequestFilter filter) {
+//        FilterRegistrationBean registrationBean = new FilterRegistrationBean(filter);
+//        registrationBean.setEnabled(false);
+//        return registrationBean;
+//    }
+//
+//
+//
+//    @Bean
+//    @Override
+//    @ConditionalOnMissingBean(HttpSessionManager.class)
+//    protected HttpSessionManager httpSessionManager() {
+//        return new HttpSessionManager();
+//    }
 
 
 }

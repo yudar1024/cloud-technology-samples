@@ -21,14 +21,14 @@ public class RolebasedExample {
 
 
     @GetMapping(value = "/admin")
-    @Secured("ROLE_admin")
+    @Secured("ROLE_ADMIN")
     public String admin() {
         log.info("admin invoked");
         return "Admin";
     }
 
     @GetMapping("/user")
-    @Secured("ROLE_role1")
+    @Secured("ROLE_ROLE1")
     public String user() {
         log.info("role1 invoked");
         return "User";
