@@ -3,6 +3,7 @@ package com.mycompany.myapp;
 import com.mycompany.myapp.config.ApplicationProperties;
 import com.mycompany.myapp.config.DefaultProfileUtil;
 
+import com.mycompany.myapp.utils.SpringContextUtil;
 import io.github.jhipster.config.JHipsterConstants;
 
 import org.apache.commons.lang3.StringUtils;
@@ -13,6 +14,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.liquibase.LiquibaseProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.Environment;
 
 import java.net.InetAddress;
@@ -60,7 +63,9 @@ public class MyApp implements InitializingBean {
     public static void main(String[] args) {
         SpringApplication app = new SpringApplication(MyApp.class);
         DefaultProfileUtil.addDefaultProfile(app);
-        Environment env = app.run(args).getEnvironment();
+        ConfigurableApplicationContext configurableApplicationContext = app.run(args);
+        SpringContextUtil.setApplicationContext(configurableApplicationContext);
+        Environment env = configurableApplicationContext.getEnvironment();
         logApplicationStartup(env);
     }
 
