@@ -8,6 +8,8 @@ public enum MyRoles {
     ROLE_USER("roles.user");
 
 
+    private ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
+
     private String displayCode;
 
     MyRoles(String displayCode) {
@@ -15,7 +17,7 @@ public enum MyRoles {
     }
 
     public String getValue(){
-        ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
+
         return messageSource.getMessage(displayCode,null, LocaleContextHolder.getLocale());
     }
 
