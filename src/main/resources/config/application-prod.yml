@@ -32,10 +32,26 @@ spring:
     livereload:
       enabled: false
   datasource:
+    primary:
+      name: primary
+      type: com.zaxxer.hikari.HikariDataSource
+      url: jdbc:mysql://localhost:3306/apptemplate?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC
+      username: root
+      password: openstack
+      hikari:
+        poolName: Hikari
+        auto-commit: false
+        data-source-properties:
+          cachePrepStmts: true
+          prepStmtCacheSize: 250
+          prepStmtCacheSqlLimit: 2048
+          useServerPrepStmts: true
+  secondary:
+    name: secondary
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:mysql://localhost:3306/my?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/apptemplate?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: root
-    password:
+    password: openstack
     hikari:
       poolName: Hikari
       auto-commit: false

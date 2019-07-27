@@ -19,6 +19,7 @@ import java.sql.SQLException;
 @EnableJpaRepositories("com.mycompany.myapp.repository")
 @EnableJpaAuditing(auditorAwareRef = "springSecurityAuditorAware")
 @EnableTransactionManagement
+@Profile(JHipsterConstants.SPRING_PROFILE_DEVELOPMENT)
 public class DatabaseConfiguration {
 
     private final Logger log = LoggerFactory.getLogger(DatabaseConfiguration.class);
