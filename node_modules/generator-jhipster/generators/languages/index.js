@@ -25,7 +25,7 @@ const statistics = require('../statistics');
 
 const constants = require('../generator-constants');
 
-let useBlueprint;
+let useBlueprints;
 
 module.exports = class extends BaseBlueprintGenerator {
     constructor(args, opts) {
@@ -78,18 +78,10 @@ module.exports = class extends BaseBlueprintGenerator {
                 }
             });
         }
-        const blueprint = this.options.blueprint || this.configOptions.blueprint || this.config.get('blueprint');
-        // use global variable since getters dont have access to instance property
-        if (!opts.fromBlueprint) {
-            useBlueprint = this.composeBlueprint(blueprint, 'languages', {
-                ...this.options,
-                languages: this.languages,
-                configOptions: this.configOptions,
-                arguments: this.options.languages
-            });
-        } else {
-            useBlueprint = false;
-        }
+
+        useBlueprints =
+            !opts.fromBlueprint &&
+            this.instantiateBlueprints('languages', { languages: this.languages, arguments: this.options.languages });
     }
 
     // Public API method used by the getter and also by Blueprints
@@ -129,12 +121,13 @@ module.exports = class extends BaseBlueprintGenerator {
                     configuration.get('serviceDiscoveryType') === 'no' ? false : configuration.get('serviceDiscoveryType');
                 // Make dist dir available in templates
                 this.BUILD_DIR = this.getBuildDirectoryForBuildTool(configuration.get('buildTool'));
+                this.skipUserManagement = configuration.get('skipUserManagement');
             }
         };
     }
 
     get initializing() {
-        if (useBlueprint) return;
+        if (useBlueprints) return;
         return this._initializing();
     }
 
@@ -146,7 +139,7 @@ module.exports = class extends BaseBlueprintGenerator {
     }
 
     get prompting() {
-        if (useBlueprint) return;
+        if (useBlueprints) return;
         return this._prompting();
     }
 
@@ -163,7 +156,7 @@ module.exports = class extends BaseBlueprintGenerator {
     }
 
     get configuring() {
-        if (useBlueprint) return;
+        if (useBlueprints) return;
         return this._configuring();
     }
 
@@ -212,7 +205,7 @@ module.exports = class extends BaseBlueprintGenerator {
     }
 
     get default() {
-        if (useBlueprint) return;
+        if (useBlueprints) return;
         return this._default();
     }
 
@@ -242,7 +235,7 @@ module.exports = class extends BaseBlueprintGenerator {
                         this.updateLanguagesInMomentWebpackReact(this.languages);
                     }
                 }
-                if (!this.skipServer) {
+                if (!this.skipUserManagement) {
                     this.updateLanguagesInLanguageMailServiceIT(this.languages, this.packageFolder);
                 }
             }
@@ -250,7 +243,7 @@ module.exports = class extends BaseBlueprintGenerator {
     }
 
     get writing() {
-        if (useBlueprint) return;
+        if (useBlueprints) return;
         return this._writing();
     }
 };

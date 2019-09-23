@@ -1,18 +1,9 @@
 ######################
 # Project Specific
 ######################
-/target/classes/static/**
+/build/resources/main/static/**
 /src/test/javascript/coverage/
 
-gateway/target/classes/static/**
-gateway/src/test/javascript/coverage/
-
-mongoservice/target/classes/static/**
-mongoservice/src/test/javascript/coverage/
-
-
-service/target/classes/static/**
-service/src/test/javascript/coverage/
 ######################
 # Node
 ######################
@@ -46,9 +37,6 @@ local.properties
 .loadpath
 .factorypath
 /src/main/resources/rebel.xml
-gateway/src/main/resources/rebel.xml
-mongoservice/src/main/resources/rebel.xml
-service/src/main/resources/rebel.xml
 
 # External tool builders
 .externalToolBuilders/**
@@ -62,6 +50,8 @@ service/src/main/resources/rebel.xml
 # PDT-specific
 .buildpath
 
+# STS-specific
+/.sts4-cache/*
 ######################
 # Intellij
 ######################
