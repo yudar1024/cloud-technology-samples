@@ -10,7 +10,7 @@
     "packageName": "com.mycompany.usermgmt",
     "packageFolder": "com/mycompany/usermgmt",
     "serverPort": "8081",
-    "authenticationType": "jwt",
+    "authenticationType": "oauth2",
     "cacheProvider": "hazelcast",
     "enableHibernateCache": true,
     "websocket": false,
@@ -22,7 +22,7 @@
     "serviceDiscoveryType": "eureka",
     "buildTool": "maven",
     "enableSwaggerCodegen": false,
-    "jwtSecretKey": "MjJmOGVjN2FkNTY2NDc1MmExYTI5NjZlYThhMDdhMDUxYmJlM2RjMGVjNTM2ZWQ0N2FmYzg0MTY3ZjA2YTFkNThhNmY0NDU1ZThiMzBlZWMxMjY1YzZhYTIzYTk2MGQzMmI2YjUzNjNiNWUwYjMyMTJhMWRjMjA5NTRmZGFkM2U=",
+    "jwtSecretKey": "YzlmNzFkMzM4NzBhNTkxMTkwNmVjYjdjMmZjNDU4OTJjNDYzNjc5NjdlM2ZjMGJjOTM1NjcwN2RhZmUzY2M0MTFmNDgxMDliYzU3Y2JkYTI2MDBiZmJiNzBiMWMyMjFiYjRjZjNlNzNlNTEyMzZmMDM5ZjYxMzg1NmFhNWM5MmY=",
     "embeddableLaunchScript": false,
     "testFrameworks": [],
     "jhiPrefix": "jhi",
@@ -33,8 +33,7 @@
     "clientPackageManager": "npm",
     "nativeLanguage": "zh-cn",
     "languages": [
-      "zh-cn",
-      "en"
+      "zh-cn"
     ],
     "blueprints": [],
     "skipClient": true,

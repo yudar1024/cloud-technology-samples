@@ -2,9 +2,9 @@ package com.mycompany.gateway.service.mapper;
 
 
 import com.mycompany.gateway.GatewayApp;
+import com.mycompany.gateway.config.TestSecurityConfiguration;
 import com.mycompany.gateway.domain.User;
 import com.mycompany.gateway.service.dto.UserDTO;
-import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,11 +20,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 /**
  * Integration tests for {@link UserMapper}.
  */
-@SpringBootTest(classes = GatewayApp.class)
+@SpringBootTest(classes = {GatewayApp.class, TestSecurityConfiguration.class})
 public class UserMapperIT {
 
     private static final String DEFAULT_LOGIN = "johndoe";
-    private static final Long DEFAULT_ID = 1L;
+    private static final String DEFAULT_ID = "id1";
 
     @Autowired
     private UserMapper userMapper;
@@ -36,7 +36,6 @@ public class UserMapperIT {
     public void init() {
         user = new User();
         user.setLogin(DEFAULT_LOGIN);
-        user.setPassword(RandomStringUtils.random(60));
         user.setActivated(true);
         user.setEmail("johndoe@localhost");
         user.setFirstName("john");

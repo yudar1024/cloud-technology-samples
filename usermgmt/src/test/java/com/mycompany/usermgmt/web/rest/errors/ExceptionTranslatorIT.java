@@ -1,6 +1,7 @@
 package com.mycompany.usermgmt.web.rest.errors;
 
 import com.mycompany.usermgmt.UsermgmtApp;
+import com.mycompany.usermgmt.config.TestSecurityConfiguration;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 /**
  * Integration tests {@link ExceptionTranslator} controller advice.
  */
-@SpringBootTest(classes = UsermgmtApp.class)
+@SpringBootTest(classes = {UsermgmtApp.class, TestSecurityConfiguration.class})
 public class ExceptionTranslatorIT {
 
     @Autowired

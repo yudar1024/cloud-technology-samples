@@ -1,6 +1,7 @@
 package com.mycompany.usermgmt.config.timezone;
 
 import com.mycompany.usermgmt.UsermgmtApp;
+import com.mycompany.usermgmt.config.TestSecurityConfiguration;
 import com.mycompany.usermgmt.repository.timezone.DateTimeWrapper;
 import com.mycompany.usermgmt.repository.timezone.DateTimeWrapperRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -20,7 +21,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 /**
  * Integration tests for the UTC Hibernate configuration.
  */
-@SpringBootTest(classes = UsermgmtApp.class)
+@SpringBootTest(classes = {UsermgmtApp.class, TestSecurityConfiguration.class})
 public class HibernateTimeZoneIT {
 
     @Autowired

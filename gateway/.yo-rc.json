@@ -10,7 +10,7 @@
     "packageName": "com.mycompany.gateway",
     "packageFolder": "com/mycompany/gateway",
     "serverPort": "8080",
-    "authenticationType": "jwt",
+    "authenticationType": "oauth2",
     "cacheProvider": "hazelcast",
     "enableHibernateCache": true,
     "websocket": false,
@@ -22,22 +22,20 @@
     "serviceDiscoveryType": "eureka",
     "buildTool": "maven",
     "enableSwaggerCodegen": false,
-    "jwtSecretKey": "Zjc5MDEwYmEwZjYwZDFhMThiNmU1YmQxZDdiYTAxMjlmN2QxNzdlOWRjNzViMmMxNTg2YzM4NmRkMTQ0MTBkMTFjYjdhMDM4Njc5ZjUwMDE5ZDQ3MDg3YjJmZTlkOTMyOTAyNTM4NWI0ZjZkNWFlZDUwMWQyODc1YTJlMmIzMWM=",
     "embeddableLaunchScript": false,
-    "useSass": true,
-    "clientPackageManager": "npm",
-    "skipClient": true,
     "testFrameworks": [],
     "jhiPrefix": "jhi",
     "entitySuffix": "",
     "dtoSuffix": "DTO",
     "otherModules": [],
     "enableTranslation": true,
+    "clientPackageManager": "npm",
     "nativeLanguage": "zh-cn",
     "languages": [
       "zh-cn",
       "en"
     ],
-    "blueprints": []
+    "blueprints": [],
+    "skipClient": true
   }
 }

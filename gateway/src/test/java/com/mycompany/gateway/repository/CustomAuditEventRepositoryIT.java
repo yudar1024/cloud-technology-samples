@@ -2,6 +2,7 @@ package com.mycompany.gateway.repository;
 
 import com.mycompany.gateway.GatewayApp;
 import com.mycompany.gateway.config.Constants;
+import com.mycompany.gateway.config.TestSecurityConfiguration;
 import com.mycompany.gateway.config.audit.AuditEventConverter;
 import com.mycompany.gateway.domain.PersistentAuditEvent;
 import org.junit.jupiter.api.BeforeEach;
@@ -27,7 +28,7 @@ import static com.mycompany.gateway.repository.CustomAuditEventRepository.EVENT_
 /**
  * Integration tests for {@link CustomAuditEventRepository}.
  */
-@SpringBootTest(classes = GatewayApp.class)
+@SpringBootTest(classes = {GatewayApp.class, TestSecurityConfiguration.class})
 @Transactional
 public class CustomAuditEventRepositoryIT {
 

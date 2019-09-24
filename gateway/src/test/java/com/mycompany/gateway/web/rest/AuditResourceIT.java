@@ -1,6 +1,7 @@
 package com.mycompany.gateway.web.rest;
 
 import com.mycompany.gateway.GatewayApp;
+import com.mycompany.gateway.config.TestSecurityConfiguration;
 import io.github.jhipster.config.JHipsterProperties;
 import com.mycompany.gateway.config.audit.AuditEventConverter;
 import com.mycompany.gateway.domain.PersistentAuditEvent;
@@ -31,7 +32,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 /**
  * Integration tests for the {@link AuditResource} REST controller.
  */
-@SpringBootTest(classes = GatewayApp.class)
+@SpringBootTest(classes = {GatewayApp.class, TestSecurityConfiguration.class})
 @Transactional
 public class AuditResourceIT {
 
