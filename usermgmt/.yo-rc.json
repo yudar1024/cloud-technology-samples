@@ -1,0 +1,43 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.mycompany.usermgmt",
+      "nativeLanguage": "zh-cn"
+    },
+    "jhipsterVersion": "6.3.1",
+    "applicationType": "microservice",
+    "baseName": "usermgmt",
+    "packageName": "com.mycompany.usermgmt",
+    "packageFolder": "com/mycompany/usermgmt",
+    "serverPort": "8081",
+    "authenticationType": "jwt",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "MjJmOGVjN2FkNTY2NDc1MmExYTI5NjZlYThhMDdhMDUxYmJlM2RjMGVjNTM2ZWQ0N2FmYzg0MTY3ZjA2YTFkNThhNmY0NDU1ZThiMzBlZWMxMjY1YzZhYTIzYTk2MGQzMmI2YjUzNjNiNWUwYjMyMTJhMWRjMjA5NTRmZGFkM2U=",
+    "embeddableLaunchScript": false,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "clientPackageManager": "npm",
+    "nativeLanguage": "zh-cn",
+    "languages": [
+      "zh-cn",
+      "en"
+    ],
+    "blueprints": [],
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}
