@@ -23,19 +23,19 @@
     "buildTool": "maven",
     "enableSwaggerCodegen": false,
     "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
     "testFrameworks": [],
     "jhiPrefix": "jhi",
     "entitySuffix": "",
     "dtoSuffix": "DTO",
     "otherModules": [],
     "enableTranslation": true,
-    "clientPackageManager": "npm",
     "nativeLanguage": "zh-cn",
-    "languages": [
-      "zh-cn",
-      "en"
-    ],
-    "blueprints": [],
-    "skipClient": true
+    "languages": ["zh-cn", "en"],
+    "blueprints": []
   }
 }
