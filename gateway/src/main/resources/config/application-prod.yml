@@ -123,6 +123,7 @@ jhipster:
       enabled: false
     authorized-microservices-endpoints: # Access Control Policy, if left empty for a route, all endpoints will be accessible
       app1: /api # recommended prod configuration
+      usermgmt: /api
   http:
     cache: # Used by the CachingHttpHeadersFilter
       timeToLiveInDays: 1461
