@@ -68,6 +68,7 @@ export class AccountService {
       .toPromise()
       .then(response => {
         const account: Account = response.body;
+        console.log(response.body);
         if (account) {
           this.userIdentity = account;
           this.authenticated = true;
