@@ -1,0 +1,43 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.mycompany.ordermgmt",
+      "nativeLanguage": "zh-cn"
+    },
+    "jhipsterVersion": "6.3.1",
+    "applicationType": "microservice",
+    "baseName": "ordermgmt",
+    "packageName": "com.mycompany.ordermgmt",
+    "packageFolder": "com/mycompany/ordermgmt",
+    "serverPort": "8082",
+    "authenticationType": "oauth2",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "OTBlZDg0OTA3MTY3OTJjMmIxZDk2YmNkYjZhOTVkZWNkM2IwMjQ1MjdkNjVkM2VjN2ZiOWI1YjhkOGQ0OGRjMTIzYmJhOTdhNzY3MTY5MDUzOTAzYjcxNGU5YzJlNDVlYzA2MDcwNzBmNzM2YzA2ZWFlNmFhZjZkNjFhZjg2Mzc=",
+    "embeddableLaunchScript": false,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "clientPackageManager": "npm",
+    "nativeLanguage": "zh-cn",
+    "languages": [
+      "zh-cn",
+      "en"
+    ],
+    "blueprints": [],
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}
