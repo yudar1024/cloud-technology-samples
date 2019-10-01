@@ -105,7 +105,9 @@ jhipster:
       limit: 100000
       duration-in-seconds: 3600
     authorized-microservices-endpoints: # Access Control Policy, if left empty for a route, all endpoints will be accessible
-      app1: /api,/v2/api-docs # recommended dev configuration
+      gateway: /api,/v2/api-docs # recommended dev configuration
+      ordermgmt: /api,/v2/api-docs
+      usermgmt: /api,/v2/api-docs
   cache: # Cache configuration
     hazelcast: # Hazelcast distributed cache
       time-to-live-seconds: 3600
