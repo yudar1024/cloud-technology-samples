@@ -1,0 +1,94 @@
+/**
+ * The application configuration.
+ * @author A true hipster
+ */
+application {
+  config {
+    baseName gateway,
+    packageName com.mycompany,
+    applicationType gateway,
+    authenticationType oauth2,
+    buildTool maven,
+    cacheProvider hazelcast,
+    clientFramework angularX,
+    clientPackageManager yarn,
+    databaseType sql,
+    devDatabaseType h2Disk,
+    dtoSuffix DTO,
+    enableHibernateCache true,
+    languages [en, zh-cn],
+    nativeLanguage zh-cn,
+    prodDatabaseType mysql,
+    serverPort 8080,
+    serviceDiscoveryType eureka,
+    skipClient false,
+    skipServer false,
+    
+  }
+}
+
+/**
+ * The application configuration.
+ * @author A true hipster
+ */
+application {
+  config {
+    baseName usermgmt,
+    packageName com.mycompany,
+    applicationType microservice,
+    authenticationType oauth2,
+    buildTool maven,
+    cacheProvider hazelcast,
+    clientFramework angularX,
+    clientPackageManager yarn,
+    databaseType sql,
+    devDatabaseType h2Disk,
+    dtoSuffix DTO,
+    enableHibernateCache true,
+    languages [en, zh-cn],
+    nativeLanguage zh-cn,
+    prodDatabaseType mysql,
+    serverPort 8081,
+    serviceDiscoveryType eureka,
+    skipClient true,
+    skipServer false
+  }
+}
+
+/**
+ * The application configuration.
+ * @author A true hipster
+ */
+application {
+  config {
+    baseName ordermgmt,
+    packageName com.mycompany,
+    applicationType microservice,
+    authenticationType oauth2,
+    buildTool maven,
+    cacheProvider hazelcast,
+    clientFramework angularX,
+    clientPackageManager yarn,
+    databaseType sql,
+    devDatabaseType h2Disk,
+    dtoSuffix DTO,
+    enableHibernateCache true,
+    languages [en, zh-cn],
+    nativeLanguage zh-cn,
+    prodDatabaseType mysql,
+    serverPort 8082,
+    serviceDiscoveryType eureka,
+    skipClient true,
+    skipServer false
+  }
+}
+
+/**
+ * The deployment configuration.
+ * @author A true hipster
+ */
+deployment {
+  deploymentType docker-compose,
+  appsFolders [gateway, usermgmt, ordermgmt],
+  dockerRepositoryName "dockerhub"
+}
