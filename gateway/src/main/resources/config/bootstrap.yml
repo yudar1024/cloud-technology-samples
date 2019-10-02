@@ -15,6 +15,12 @@ spring:
     # Otherwise, it will be filled in by maven when building the JAR file
     # Either way, it can be overridden by `--spring.profiles.active` value passed in the commandline or `-Dspring.profiles.active` set in `JAVA_OPTS`
     active: #spring.profiles.active#
+#  NacosConfigProperties use with spring cloud, spring cloud must use nacos as registry server if you use other service restiry , consider use nacos as config server with springboot manner
+#  cloud:
+#    nacos:
+#      config:
+#        server-addr: 127.0.0.1:8848
+
 #  cloud:
 #    config:
 #      fail-fast: false # if not in "prod" profile, do not force to use Spring Cloud Config
@@ -24,3 +30,7 @@ spring:
 #      profile: dev # profile(s) of the property source
 #      label: master # toggle to switch to a different version of the configuration as stored in git
 #      # it can be set to any label, branch or commit of the configuration source Git repository
+# use nacos with springboot
+nacos:
+  config:
+    server-addr: 127.0.0.1:8848
