@@ -159,3 +159,7 @@ fabric.properties
 *.iml
 out
 gen
+
+*.db
+.project
+settings.json
