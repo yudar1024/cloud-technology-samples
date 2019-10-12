@@ -647,6 +647,7 @@
                             </environment>
                             <creationTime>USE_CURRENT_TIMESTAMP</creationTime>
                         </container>
+                        <allowInsecureRegistries>true</allowInsecureRegistries>
                     </configuration>
                 </plugin>
                 <plugin>
