@@ -1,0 +1,39 @@
+{
+  "generator-jhipster": {
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "enableHibernateCache": true,
+    "enableSwaggerCodegen": false,
+    "enableTranslation": true,
+    "jhiPrefix": "jhi",
+    "languages": [
+      "en",
+      "zh-cn"
+    ],
+    "messageBroker": false,
+    "nativeLanguage": "zh-cn",
+    "packageName": "com.mycompany",
+    "packageFolder": "com/mycompany",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "serviceDiscoveryType": "eureka",
+    "skipClient": true,
+    "testFrameworks": [],
+    "websocket": false,
+    "baseName": "ordermgmt",
+    "applicationType": "microservice",
+    "authenticationType": "oauth2",
+    "buildTool": "maven",
+    "cacheProvider": "hazelcast",
+    "clientPackageManager": "yarn",
+    "dtoSuffix": "DTO",
+    "serverPort": "8082",
+    "jhipsterVersion": "6.4.1",
+    "skipUserManagement": true,
+    "embeddableLaunchScript": false,
+    "entitySuffix": "",
+    "otherModules": [],
+    "blueprints": []
+  },
+  "entities": []
+}
