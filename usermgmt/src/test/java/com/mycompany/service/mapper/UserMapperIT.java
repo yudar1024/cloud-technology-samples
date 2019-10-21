@@ -1,6 +1,5 @@
 package com.mycompany.service.mapper;
 
-
 import com.mycompany.UsermgmtApp;
 import com.mycompany.config.TestSecurityConfiguration;
 import com.mycompany.domain.User;
