@@ -147,14 +147,9 @@ spring:
     oauth2:
       client:
         provider:
-          # 可以配置多个provider
-          # issuer-uri 是keycloak realm 的地址，模式为http://localhost:9000/auth/realms/<realm-name>
           oidc:
             issuer-uri: http://localhost:9080/auth/realms/jhipster
         registration:
-          # registration 下的 oidc 会生成一个 http://<yourserviceip>:<port>/oauth2/authorization/<oidc> 的地址,
-          #浏览器访问这个地址会被重定向到 keycloak 的登录地址。如果把oidc 改为keycloak 那么生成的地址就为 http://<yourserviceip>:<port>/oauth2/authorization/<keycloak>
-          # 可以配置多个 registration，对应的配置类 OAuth2ClientProperties
           oidc:
             client-id: internal
             client-secret: internal
@@ -200,6 +195,11 @@ jhipster:
     contact-email:
     license:
     license-url:
+  security:
+    oauth2:
+      audience:
+        - account
+        - api://default
 # ===================================================================
 # Application specific properties
 # Add your own application properties here, see the ApplicationProperties class
