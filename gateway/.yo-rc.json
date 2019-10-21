@@ -27,7 +27,7 @@
     "clientPackageManager": "yarn",
     "dtoSuffix": "DTO",
     "serverPort": "8080",
-    "jhipsterVersion": "6.3.1",
+    "jhipsterVersion": "6.4.1",
     "skipUserManagement": true,
     "clientTheme": "none",
     "clientThemeVariant": "",
