@@ -1,6 +1,5 @@
 package com.mycompany.service.mapper;
 
-
 import com.mycompany.OrdermgmtApp;
 import com.mycompany.config.TestSecurityConfiguration;
 import com.mycompany.domain.User;
