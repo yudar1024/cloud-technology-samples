@@ -1,6 +1,5 @@
 package com.mycompany;
 
-import com.alibaba.nacos.spring.context.annotation.config.NacosPropertySource;
 import com.mycompany.config.ApplicationProperties;
 import com.mycompany.config.DefaultProfileUtil;
 

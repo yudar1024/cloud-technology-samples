@@ -11,6 +11,7 @@
         <module>gateway</module>
         <module>usermgmt</module>
         <module>ordermgmt</module>
+        <module>common-configuration</module>
     </modules>
 </project>
 

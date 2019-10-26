@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.mycompany.proto.dto";
+//option java_outer_classname = "TestGrpcPerformance";
+
+package com.mycompany.proto.dto;
+import "google/protobuf/timestamp.proto";
+
+service TestPerformance {
+    rpc SayHello (TestRequest) returns (TestReply) {
+    }
+}
+
+message TestRequest {
+    string name = 1;
+}
+
+message TestReply {
+    int32 age = 1;
+    google.protobuf.Timestamp currentTIme = 2;
+    string name = 3;
+}
+

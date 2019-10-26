@@ -1,6 +1,10 @@
 package com.mycompany.web.rest;
 
+import com.mycompany.client.OrdermgmtClient;
+import com.mycompany.client.OrdermgmtProtoClient;
 import com.mycompany.config.Constants;
+import com.mycompany.proto.dto.TestReply;
+import com.mycompany.proto.dto.TestRequest;
 import com.mycompany.security.AuthoritiesConstants;
 import com.mycompany.service.UserService;
 import com.mycompany.service.dto.UserDTO;
@@ -11,6 +15,7 @@ import io.github.jhipster.web.util.ResponseUtil;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -58,6 +63,11 @@ public class UserResource {
 
     private final UserService userService;
 
+    @Autowired
+    private OrdermgmtClient ordermgmtClient;
+    @Autowired
+    private OrdermgmtProtoClient ordermgmtProtoClient;
+
     public UserResource(UserService userService) {
 
         this.userService = userService;
@@ -98,5 +108,15 @@ public class UserResource {
         return ResponseUtil.wrapOrNotFound(
             userService.getUserWithAuthoritiesByLogin(login)
                 .map(UserDTO::new));
+    }
+    @RequestMapping(value = "/order/name", method = RequestMethod.GET)
+    public String getServiceName(){
+        return ordermgmtClient.serviceName();
+    }
+    @RequestMapping(value = "/order/info", method = RequestMethod.GET)
+    public String getInfo(){
+        TestRequest testRequest = TestRequest.newBuilder().setName("user service").build();
+        TestReply testReply= ordermgmtProtoClient.getInfo(testRequest);
+        return testReply.toString();
     }
 }
