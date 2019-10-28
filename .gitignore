@@ -29,3 +29,6 @@ target/
 .idea
 .settings
 .vscode
+usermgmt
+ordermgmt
+gateway
