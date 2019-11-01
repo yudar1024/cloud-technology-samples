@@ -63,6 +63,7 @@ public class AccessControlFilter extends ZuulFilter {
     }
 
     private boolean isAuthorizedRequest(String serviceUrl, String serviceName, String requestUri) {
+//      dynamic route extend point， replace jhipster properties to database data. 动态路由扩展点。
         Map<String, List<String>> authorizedMicroservicesEndpoints = jHipsterProperties.getGateway()
             .getAuthorizedMicroservicesEndpoints();
 
