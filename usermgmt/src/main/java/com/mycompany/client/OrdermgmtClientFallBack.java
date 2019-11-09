@@ -6,4 +6,9 @@ public class OrdermgmtClientFallBack implements OrdermgmtClient {
     public String serviceName() {
         return "here is the default fallback for method serviceName";
     }
+
+    @Override
+    public String getServiceInfo(String serviceName, Integer age) {
+        return null;
+    }
 }
