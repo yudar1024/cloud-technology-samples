@@ -163,3 +163,5 @@ gen
 *.db
 .project
 settings.json
+dubbocomusmer/**
+dubboprovider/**
