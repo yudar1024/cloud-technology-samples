@@ -1,0 +1,40 @@
+{
+  "generator-jhipster": {
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "enableHibernateCache": true,
+    "enableSwaggerCodegen": false,
+    "enableTranslation": true,
+    "jhiPrefix": "my",
+    "languages": [
+      "en",
+      "zh-cn"
+    ],
+    "messageBroker": false,
+    "nativeLanguage": "zh-cn",
+    "packageName": "com.mycompany",
+    "packageFolder": "com/mycompany",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "serviceDiscoveryType": false,
+    "skipClient": true,
+    "testFrameworks": [],
+    "websocket": false,
+    "baseName": "sprcloudaliorder",
+    "applicationType": "microservice",
+    "authenticationType": "jwt",
+    "buildTool": "maven",
+    "cacheProvider": "redis",
+    "clientPackageManager": "yarn",
+    "dtoSuffix": "DTO",
+    "serverPort": "8082",
+    "skipUserManagement": true,
+    "jhipsterVersion": "6.5.1",
+    "jwtSecretKey": "MDhjYzA5YjIyOGRhN2RhOTM5MDI4YmRiYzU4M2YwMGE4NjE5OWNjMjQ1MTkzYmIyMzhkZDU2ZTFhZTRiNzI3NGI2NWFhNzgyMDhkZTI1Njg1MTAwYzlhMTcwZTE3NGM4NDNmZjdiZmM1ZTkwYTdhNjhjNzkzYmFmY2RmMWU3YjQ=",
+    "embeddableLaunchScript": false,
+    "entitySuffix": "",
+    "otherModules": [],
+    "blueprints": []
+  },
+  "entities": []
+}
