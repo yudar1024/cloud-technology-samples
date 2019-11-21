@@ -8,8 +8,8 @@
     <packaging>pom</packaging>
     <name>jhipster-learn</name>
     <modules>
-        <module>dubboprovider</module>
-        <module>dubbocomusmer</module>
+        <module>sprcloudaliorder</module>
+        <module>sprcloudaliuser</module>
     </modules>
 </project>
 
