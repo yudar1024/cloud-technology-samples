@@ -7,6 +7,9 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>jhipster-learn</name>
+    <properties>
+        <java.version>11</java.version>
+    </properties>
     <modules>
         <module>sprcloudaliorder</module>
         <module>sprcloudaliuser</module>
