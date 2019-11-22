@@ -1,6 +1,7 @@
 package com.mycompany.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
+import com.baomidou.mybatisplus.extension.plugins.OptimisticLockerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import com.p6spy.engine.spy.P6DataSource;
 import io.github.jhipster.config.JHipsterConstants;
@@ -70,6 +71,11 @@ public class DatabaseConfiguration {
         // 设置最大单页限制数量，默认 500 条，-1 不受限制
         // paginationInterceptor.setLimit(500);
         return paginationInterceptor;
+    }
+
+    @Bean
+    public OptimisticLockerInterceptor optimisticLockerInterceptor() {
+        return new OptimisticLockerInterceptor();
     }
 
 
