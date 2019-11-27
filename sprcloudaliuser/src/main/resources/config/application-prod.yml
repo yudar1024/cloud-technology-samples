@@ -175,7 +175,7 @@ spring:
   datasource:
     druid:
       #连接信息
-      url: jdbc:p6spy:mysql://localhost:3306/test
+      url: jdbc:p6spy:mysql://localhost:3306/sprcloudaliuser
 #      url: jdbc:mysql://localhost:3306/test
       username: root
       password: openstack
