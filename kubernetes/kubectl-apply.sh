@@ -12,6 +12,7 @@ logSummary(){
 
 kubectl apply -f sprcloudaliuser/
 kubectl apply -f sprcloudaliorder/
+kubectl apply -f springbootpoc/
 kubectl apply -f monitoring/jhipster-prometheus-crd.yml
 until [ $(kubectl get crd prometheuses.monitoring.coreos.com 2>>/dev/null | wc -l) -ge 2 ]; do
     echo "Waiting for the custom resource prometheus operator to get initialised";

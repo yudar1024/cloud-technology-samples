@@ -6,7 +6,8 @@
     "directoryPath": "../",
     "appsFolders": [
       "sprcloudaliuser",
-      "sprcloudaliorder"
+      "sprcloudaliorder",
+      "springbootpoc"
     ],
     "clusteredDbApps": [],
     "consoleOptions": [],
