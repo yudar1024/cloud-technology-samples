@@ -6,10 +6,7 @@
     "enableSwaggerCodegen": false,
     "enableTranslation": true,
     "jhiPrefix": "poc",
-    "languages": [
-      "en",
-      "zh-cn"
-    ],
+    "languages": ["en", "zh-cn"],
     "messageBroker": false,
     "nativeLanguage": "zh-cn",
     "packageName": "com.mycompany.poc",
@@ -31,7 +28,7 @@
     "dtoSuffix": "DTO",
     "serverPort": "8083",
     "skipUserManagement": true,
-    "jhipsterVersion": "6.5.1",
+    "jhipsterVersion": "6.6.0",
     "clientTheme": "none",
     "clientThemeVariant": "",
     "useSass": true,
@@ -39,7 +36,8 @@
     "embeddableLaunchScript": false,
     "entitySuffix": "",
     "otherModules": [],
-    "blueprints": []
+    "blueprints": [],
+    "creationTimestamp": 1577237793128
   },
   "entities": []
 }
