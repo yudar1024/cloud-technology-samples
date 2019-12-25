@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sprcloudaliorder
+  namespace: default
+  labels:
+    app: sprcloudaliorder
+spec:
+  selector:
+    app: sprcloudaliorder
+  ports:
+    - name: http
+      port: 8082
