@@ -1,0 +1,103 @@
+
+
+/**
+ * The application configuration.
+ * @author A true hipster
+ */
+application {
+  config {
+    jhiPrefix my
+    baseName sprcloudaliuser,
+    packageName com.mycompany,
+    applicationType microservice,
+    authenticationType jwt,
+    buildTool maven,
+    cacheProvider redis,
+    clientFramework angularX,
+    clientPackageManager yarn,
+    databaseType sql,
+    devDatabaseType h2Disk,
+    dtoSuffix DTO,
+    enableHibernateCache true,
+    languages [en, zh-cn],
+    nativeLanguage zh-cn,
+    prodDatabaseType mysql,
+    serverPort 8081,
+    serviceDiscoveryType no,
+    skipClient true,
+    skipServer false
+    skipUserManagement false
+  }
+}
+
+/**
+ * The application configuration.
+ * @author A true hipster
+ */
+application {
+  config {
+    jhiPrefix my
+    baseName sprcloudaliorder,
+    packageName com.mycompany,
+    applicationType microservice,
+    authenticationType jwt,
+    buildTool maven,
+    cacheProvider redis,
+    clientFramework angularX,
+    clientPackageManager yarn,
+    databaseType sql,
+    devDatabaseType h2Disk,
+    dtoSuffix DTO,
+    enableHibernateCache true,
+    languages [en, zh-cn],
+    nativeLanguage zh-cn,
+    prodDatabaseType mysql,
+    serverPort 8082,
+    serviceDiscoveryType no,
+    skipClient true,
+    skipServer false
+    skipUserManagement true
+  }
+}
+
+/**
+ * The application configuration.
+ * @author A true hipster
+ */
+application {
+  config {
+    jhiPrefix poc
+    baseName springbootpoc,
+    packageName com.mycompany.poc,
+    applicationType monolith,
+    authenticationType jwt,
+    buildTool maven,
+    cacheProvider hazelcast,
+    clientFramework angularX,
+    clientPackageManager yarn,
+    databaseType sql,
+    devDatabaseType h2Disk,
+    dtoSuffix DTO,
+    enableHibernateCache true,
+    languages [en, zh-cn],
+    nativeLanguage zh-cn,
+    prodDatabaseType mysql,
+    serverPort 8083,
+    serviceDiscoveryType no,
+    skipClient true,
+    skipServer false
+    skipUserManagement true
+  }
+}
+
+/**
+ * The deployment configuration.
+ * @author A true hipster
+ */
+deployment {
+  deploymentType kubernetes,
+  appsFolders [sprcloudaliuser, sprcloudaliorder,springbootpoc],
+  dockerRepositoryName "dockerhub"
+  serviceDiscoveryType no
+  monitoring prometheus
+}
