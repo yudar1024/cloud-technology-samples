@@ -14,7 +14,7 @@ public class RedisTestContainerExtension implements BeforeAllCallback {
     public void beforeAll(ExtensionContext extensionContext) throws Exception {
         if(!started.get()) {
             GenericContainer redis =
-                new GenericContainer("redis:5.0.6")
+                new GenericContainer("redis:5.0.7")
                     .withExposedPorts(6379);
             redis.start();
             System.setProperty("redis.test.server", "redis://" + redis.getContainerIpAddress() + ":" + redis.getMappedPort(6379));
