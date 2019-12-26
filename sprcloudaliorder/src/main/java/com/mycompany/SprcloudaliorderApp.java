@@ -1,8 +1,8 @@
 package com.mycompany;
 
 import com.mycompany.config.ApplicationProperties;
-import com.mycompany.config.DefaultProfileUtil;
 
+import io.github.jhipster.config.DefaultProfileUtil;
 import io.github.jhipster.config.JHipsterConstants;
 
 import org.apache.commons.lang3.StringUtils;
