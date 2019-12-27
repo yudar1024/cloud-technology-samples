@@ -6,6 +6,8 @@ import io.github.jhipster.config.DefaultProfileUtil;
 import io.github.jhipster.config.JHipsterConstants;
 
 import org.apache.commons.lang3.StringUtils;
+import org.mybatis.spring.annotation.MapperScan;
+import org.mybatis.spring.annotation.MapperScans;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
@@ -14,6 +16,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.liquibase.LiquibaseProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.core.env.Environment;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -22,6 +25,7 @@ import java.util.Collection;
 
 @SpringBootApplication
 @EnableConfigurationProperties({LiquibaseProperties.class, ApplicationProperties.class})
+@MapperScans({@MapperScan("com.mycompany.mapper")})
 public class SprcloudaliorderApp implements InitializingBean {
 
     private static final Logger log = LoggerFactory.getLogger(SprcloudaliorderApp.class);
