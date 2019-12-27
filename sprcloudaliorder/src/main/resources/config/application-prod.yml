@@ -169,13 +169,13 @@ spring:
   datasource:
     druid:
       #连接信息
-      url: jdbc:p6spy:mysql://localhost:3306/sprcloudaliuser
-      #      url: jdbc:mysql://localhost:3306/test
+#      url: jdbc:p6spy:mysql://localhost:3306/sprcloudaliuser
+      url: jdbc:mysql://localhost:3306/test
       username: root
       password: openstack
       #     for log sql , do not use in product env
-      driver-class-name: com.p6spy.engine.spy.P6SpyDriver
-      #      driver-class-name: com.mysql.cj.jdbc.Driver
+#      driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+      driver-class-name: com.mysql.cj.jdbc.Driver
       #连接池配置
       min-idle: 5
       initial-size: 5
