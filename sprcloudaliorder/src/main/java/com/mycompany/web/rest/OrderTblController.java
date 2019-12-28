@@ -34,6 +34,12 @@ public class OrderTblController {
     public void saveOrder(@RequestBody OrderTbl orderTbl){
         iOrderTblService.save(orderTbl);
     }
+    
+    @PostMapping("/gloable/order")
+    @ApiOperation("下单-分布式事务")
+    public void globleSave() {
+		log.info("分布式事务下单");
+	}
 
 }
 

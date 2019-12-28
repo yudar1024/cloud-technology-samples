@@ -169,8 +169,8 @@ spring:
   datasource:
     druid:
       #连接信息
-#      url: jdbc:p6spy:mysql://localhost:3306/sprcloudaliuser
-      url: jdbc:mysql://localhost:3306/test
+#      url: jdbc:p6spy:mysql://localhost:3306/seata_order
+      url: jdbc:mysql://localhost:3306/seata_order
       username: root
       password: openstack
       #     for log sql , do not use in product env
@@ -215,5 +215,9 @@ spring:
     locator:
       discovery:
         enabled: true
-
+  cloud:
+    alibaba:
+      seata:
+        tx-service-group: order-service-group #此处要与seata server 的 service.vgroup_mapping.<order-service-group>=default 对应
+        
 

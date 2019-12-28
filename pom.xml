@@ -15,6 +15,7 @@
         <module>sprcloudaliuser</module>
         <module>springbootpoc</module>
         <module>sprcloudaligateway</module>
+        <module>sprcloudalistorage</module>
     </modules>
 </project>
 
