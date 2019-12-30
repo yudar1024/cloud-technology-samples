@@ -1,0 +1,41 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.mycompany.pay",
+      "nativeLanguage": "zh-cn"
+    },
+    "jhipsterVersion": "6.6.0",
+    "applicationType": "microservice",
+    "baseName": "sprcloudalipay",
+    "packageName": "com.mycompany.pay",
+    "packageFolder": "com/mycompany/pay",
+    "serverPort": "8085",
+    "authenticationType": "jwt",
+    "cacheProvider": "redis",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Memory",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "gradle",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "NjE3MmExZjQ4MDRmNmIyOTM3YjI4MWNlNTI1NTViZTVhOTcwOTk0N2MzNjY3OTkxZjczZTg1N2IyMjkxYjcyMDcwMDUyMGY0OTRjNGRiZTFkMTI5MzVhZmRjMjY3YjU1MmQ5M2I0ZTI3M2Q0ZTgzNjVjNTk3ZTU2MWU0NWZlZTY=",
+    "embeddableLaunchScript": false,
+    "creationTimestamp": 1577678570146,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "clientPackageManager": "npm",
+    "nativeLanguage": "zh-cn",
+    "languages": ["zh-cn", "en"],
+    "blueprints": [],
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}
