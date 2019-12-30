@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
 import io.github.jhipster.config.JHipsterConstants;
 import io.github.jhipster.config.h2.H2ConfigurationHelper;
 //import io.seata.rm.datasource.DataSourceProxy;
+import io.seata.rm.datasource.DataSourceProxy;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.slf4j.Logger;
@@ -83,7 +84,6 @@ public class DatabaseConfiguration {
      */
     @Bean
     @ConfigurationProperties(prefix = "spring.datasource.druid")
-    @Primary
     @LiquibaseDataSource
     public DataSource druidDataSource() {
         DruidDataSource druidDataSource = new DruidDataSource();
@@ -95,32 +95,14 @@ public class DatabaseConfiguration {
      * @param druidDataSource
      * @return
      */
-//    @Primary
-//    @Bean("dataSource")
-//    public DataSourceProxy dataSourceProxy(DataSource druidDataSource) {
-//        return new DataSourceProxy(druidDataSource);
-//    }
-
-    @Bean(name = "sqlSessionFactory")
-    public SqlSessionFactory sqlSessionFactoryBean(DataSource dataSourceProxy) throws Exception {
-        MybatisSqlSessionFactoryBean bean = new MybatisSqlSessionFactoryBean();
-        bean.setDataSource(dataSourceProxy);
-        ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-        // bean.setConfigLocation(resolver.getResource("classpath:mybatis-config.xml"));
-        bean.setMapperLocations(resolver.getResources("classpath*:mapper/**/*-mapper.xml"));
-//        bean.setMapperLocations(resolver.getResources("classpath*:mybatis/**/*-mapper.xml"));
-
-        SqlSessionFactory factory = null;
-        try {
-            factory = bean.getObject();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-        return factory;
+    @Primary
+    @Bean("dataSource")
+    public DataSourceProxy dataSourceProxy(DataSource druidDataSource) {
+        return new DataSourceProxy(druidDataSource);
     }
 
 //    @Bean(name = "sqlSessionFactory")
-//    public SqlSessionFactory sqlSessionFactoryBean(DataSourceProxy dataSourceProxy) throws Exception {
+//    public SqlSessionFactory sqlSessionFactoryBean(DataSource dataSourceProxy) throws Exception {
 //        MybatisSqlSessionFactoryBean bean = new MybatisSqlSessionFactoryBean();
 //        bean.setDataSource(dataSourceProxy);
 //        ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
@@ -136,6 +118,24 @@ public class DatabaseConfiguration {
 //        }
 //        return factory;
 //    }
+
+    @Bean(name = "sqlSessionFactory")
+    public SqlSessionFactory sqlSessionFactoryBean(DataSourceProxy dataSourceProxy) throws Exception {
+        MybatisSqlSessionFactoryBean bean = new MybatisSqlSessionFactoryBean();
+        bean.setDataSource(dataSourceProxy);
+        ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
+        // bean.setConfigLocation(resolver.getResource("classpath:mybatis-config.xml"));
+        bean.setMapperLocations(resolver.getResources("classpath*:mapper/**/*-mapper.xml"));
+//        bean.setMapperLocations(resolver.getResources("classpath*:mybatis/**/*-mapper.xml"));
+
+        SqlSessionFactory factory = null;
+        try {
+            factory = bean.getObject();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return factory;
+    }
 
     @Bean
     public PaginationInterceptor paginationInterceptor() {

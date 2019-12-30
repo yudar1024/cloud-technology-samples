@@ -217,9 +217,9 @@ spring:
     locator:
       discovery:
         enabled: true
-#  cloud:
-#    alibaba:
-#      seata:
-#        tx-service-group: order-service-group #此处要与seata server 的 service.vgroup_mapping.<order-service-group>=default 对应
+  cloud:
+    alibaba:
+      seata:
+        tx-service-group: order-service-group #此处要与seata server 的 service.vgroup_mapping.<order-service-group>=default 对应
 
 
