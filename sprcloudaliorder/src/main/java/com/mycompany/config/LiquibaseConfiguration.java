@@ -31,28 +31,27 @@ public class LiquibaseConfiguration {
 
     @Bean
     public SpringLiquibase liquibase(@Qualifier("taskExecutor") Executor executor,
-            @LiquibaseDataSource ObjectProvider<DataSource> liquibaseDataSource, LiquibaseProperties liquibaseProperties,
+            @LiquibaseDataSource ObjectProvider<DataSource> liquibaseDataSource,
             ObjectProvider<DataSource> dataSource, DataSourceProperties dataSourceProperties) {
-
         // If you don't want Liquibase to start asynchronously, substitute by this:
-        // SpringLiquibase liquibase = SpringLiquibaseUtil.createSpringLiquibase(liquibaseDataSource.getIfAvailable(), liquibaseProperties, dataSource.getIfUnique(), dataSourceProperties);
-        SpringLiquibase liquibase = SpringLiquibaseUtil.createAsyncSpringLiquibase(this.env, executor, liquibaseDataSource.getIfAvailable(), liquibaseProperties, dataSource.getIfUnique(), dataSourceProperties);
-        liquibase.setChangeLog("classpath:config/liquibase/master.xml");
-        liquibase.setContexts(liquibaseProperties.getContexts());
-        liquibase.setDefaultSchema(liquibaseProperties.getDefaultSchema());
-        liquibase.setLiquibaseSchema(liquibaseProperties.getLiquibaseSchema());
-        liquibase.setLiquibaseTablespace(liquibaseProperties.getLiquibaseTablespace());
-        liquibase.setDatabaseChangeLogLockTable(liquibaseProperties.getDatabaseChangeLogLockTable());
-        liquibase.setDatabaseChangeLogTable(liquibaseProperties.getDatabaseChangeLogTable());
-        liquibase.setDropFirst(liquibaseProperties.isDropFirst());
-        liquibase.setLabels(liquibaseProperties.getLabels());
-        liquibase.setChangeLogParameters(liquibaseProperties.getParameters());
-        liquibase.setRollbackFile(liquibaseProperties.getRollbackFile());
-        liquibase.setTestRollbackOnUpdate(liquibaseProperties.isTestRollbackOnUpdate());
+        LiquibaseProperties liquibaseProperties = new LiquibaseProperties();
+        liquibaseProperties.setChangeLog("classpath:config/liquibase/master.xml");
+        liquibaseProperties.setContexts(env.getDefaultProfiles().toString());
+        SpringLiquibase liquibase = SpringLiquibaseUtil.createSpringLiquibase(liquibaseDataSource.getIfAvailable(), liquibaseProperties, dataSource.getIfUnique(), dataSourceProperties);
+
+
+        if(env.acceptsProfiles(Profiles.of(JHipsterConstants.SPRING_PROFILE_DEVELOPMENT))){
+            liquibase.setDropFirst(true);
+        }
+
         if (env.acceptsProfiles(Profiles.of(JHipsterConstants.SPRING_PROFILE_NO_LIQUIBASE))) {
+
             liquibase.setShouldRun(false);
-        } else {
-            liquibase.setShouldRun(liquibaseProperties.isEnabled());
+        }else if(env.acceptsProfiles(Profiles.of(JHipsterConstants.SPRING_PROFILE_PRODUCTION))){
+            liquibase.setContexts("prod");
+        }
+        else {
+            liquibase.setShouldRun(true);
             log.debug("Configuring Liquibase");
         }
         return liquibase;

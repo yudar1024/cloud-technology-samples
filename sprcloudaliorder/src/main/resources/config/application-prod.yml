@@ -15,7 +15,7 @@
 
 logging:
   level:
-    ROOT: INFO
+    ROOT: DEBUG
     io.github.jhipster: INFO
     com.mycompany: INFO
 
@@ -170,7 +170,7 @@ spring:
     druid:
       #连接信息
 #      url: jdbc:p6spy:mysql://localhost:3306/seata_order
-      url: jdbc:mysql://localhost:3306/seata_order
+      url: jdbc:mysql://localhost:3306/seata_order?characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useUnicode=true&useSSL=false&serverTimezone=UTC&allowMultiQueries=true
       username: root
       password: openstack
       #     for log sql , do not use in product env
@@ -195,9 +195,11 @@ spring:
         wall:
           #          生产用true
           enabled: false
-  liquibase:
-    contexts: prod
-    enable: false
+#    不引入JPA的情况下配置装配liquibaseproperties 会有问题
+#  liquibase:
+#    contexts: prod
+#    enable: false
+#    change-log: classpath:config/liquibase/master.xml
 
   mail:
     host: localhost
@@ -215,9 +217,9 @@ spring:
     locator:
       discovery:
         enabled: true
-  cloud:
-    alibaba:
-      seata:
-        tx-service-group: order-service-group #此处要与seata server 的 service.vgroup_mapping.<order-service-group>=default 对应
-        
+#  cloud:
+#    alibaba:
+#      seata:
+#        tx-service-group: order-service-group #此处要与seata server 的 service.vgroup_mapping.<order-service-group>=default 对应
+
 

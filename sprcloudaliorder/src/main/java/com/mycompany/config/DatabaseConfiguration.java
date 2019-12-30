@@ -1,23 +1,32 @@
 package com.mycompany.config;
 
+import com.alibaba.druid.pool.DruidDataSource;
+import com.baomidou.mybatisplus.extension.plugins.OptimisticLockerInterceptor;
+import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
+import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
 import io.github.jhipster.config.JHipsterConstants;
 import io.github.jhipster.config.h2.H2ConfigurationHelper;
+//import io.seata.rm.datasource.DataSourceProxy;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.autoconfigure.liquibase.LiquibaseDataSource;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
 
 import org.springframework.core.env.Environment;
-import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import javax.sql.DataSource;
 import java.sql.SQLException;
 
 @Configuration
-@EnableJpaRepositories("com.mycompany.repository")
-@EnableJpaAuditing(auditorAwareRef = "springSecurityAuditorAware")
 @EnableTransactionManagement
 public class DatabaseConfiguration {
 
@@ -55,5 +64,92 @@ public class DatabaseConfiguration {
             }
         }
         return String.valueOf(port);
+    }
+
+    /**
+     * @param sqlSessionFactory SqlSessionFactory
+     * @return SqlSessionTemplate
+     */
+    @Bean
+    public SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sqlSessionFactory) {
+        return new SqlSessionTemplate(sqlSessionFactory);
+    }
+
+    /**
+     * 从配置文件获取属性构造datasource，注意前缀，这里用的是druid，根据自己情况配置,
+     * 原生datasource前缀取"spring.datasource"
+     *
+     * @return
+     */
+    @Bean
+    @ConfigurationProperties(prefix = "spring.datasource.druid")
+    @Primary
+    @LiquibaseDataSource
+    public DataSource druidDataSource() {
+        DruidDataSource druidDataSource = new DruidDataSource();
+        return druidDataSource;
+    }
+
+    /**
+     * 构造datasource代理对象，替换原来的datasource
+     * @param druidDataSource
+     * @return
+     */
+//    @Primary
+//    @Bean("dataSource")
+//    public DataSourceProxy dataSourceProxy(DataSource druidDataSource) {
+//        return new DataSourceProxy(druidDataSource);
+//    }
+
+    @Bean(name = "sqlSessionFactory")
+    public SqlSessionFactory sqlSessionFactoryBean(DataSource dataSourceProxy) throws Exception {
+        MybatisSqlSessionFactoryBean bean = new MybatisSqlSessionFactoryBean();
+        bean.setDataSource(dataSourceProxy);
+        ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
+        // bean.setConfigLocation(resolver.getResource("classpath:mybatis-config.xml"));
+        bean.setMapperLocations(resolver.getResources("classpath*:mapper/**/*-mapper.xml"));
+//        bean.setMapperLocations(resolver.getResources("classpath*:mybatis/**/*-mapper.xml"));
+
+        SqlSessionFactory factory = null;
+        try {
+            factory = bean.getObject();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return factory;
+    }
+
+//    @Bean(name = "sqlSessionFactory")
+//    public SqlSessionFactory sqlSessionFactoryBean(DataSourceProxy dataSourceProxy) throws Exception {
+//        MybatisSqlSessionFactoryBean bean = new MybatisSqlSessionFactoryBean();
+//        bean.setDataSource(dataSourceProxy);
+//        ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
+//        // bean.setConfigLocation(resolver.getResource("classpath:mybatis-config.xml"));
+//        bean.setMapperLocations(resolver.getResources("classpath*:mapper/**/*-mapper.xml"));
+////        bean.setMapperLocations(resolver.getResources("classpath*:mybatis/**/*-mapper.xml"));
+//
+//        SqlSessionFactory factory = null;
+//        try {
+//            factory = bean.getObject();
+//        } catch (Exception e) {
+//            throw new RuntimeException(e);
+//        }
+//        return factory;
+//    }
+
+    @Bean
+    public PaginationInterceptor paginationInterceptor() {
+        PaginationInterceptor paginationInterceptor = new PaginationInterceptor();
+        // 设置请求的页面大于最大页后操作， true调回到首页，false 继续请求  默认false
+        // paginationInterceptor.setOverflow(false);
+        // 设置最大单页限制数量，默认 500 条，-1 不受限制
+        // paginationInterceptor.setLimit(500);
+        paginationInterceptor.setDialectType("mysql");
+        return paginationInterceptor;
+    }
+
+    @Bean
+    public OptimisticLockerInterceptor optimisticLockerInterceptor() {
+        return new OptimisticLockerInterceptor();
     }
 }
