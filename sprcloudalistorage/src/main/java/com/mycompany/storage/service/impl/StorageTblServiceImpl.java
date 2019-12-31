@@ -16,5 +16,9 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class StorageTblServiceImpl extends ServiceImpl<StorageTblMapper, StorageTbl> implements IStorageTblService {
+    @Override
+    public void globalSave(StorageTbl storageTbl) {
+        super.save(storageTbl);
 
+    }
 }
