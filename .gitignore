@@ -32,3 +32,5 @@ target/
 usermgmt
 ordermgmt
 gateway
+/dubboprovider/node_modules/
+/dubbocomusmer/node_modules/
