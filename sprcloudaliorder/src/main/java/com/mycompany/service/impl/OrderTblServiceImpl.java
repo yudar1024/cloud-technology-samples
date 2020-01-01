@@ -17,4 +17,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class OrderTblServiceImpl extends ServiceImpl<OrderTblMapper, OrderTbl> implements IOrderTblService {
 
+	@Override
+	public void globleSave(OrderTbl orderTbl) {
+		// TODO Auto-generated method stub
+		super.save(orderTbl);
+	}
+	
+
 }
