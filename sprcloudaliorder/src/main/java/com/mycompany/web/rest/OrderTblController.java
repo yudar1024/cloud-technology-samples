@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2019-12-30
  */
 @RestController
-@RequestMapping("/order-tbl")
+@RequestMapping("/api/order-tbl")
 public class OrderTblController {
+	
+	
 
 }
 
