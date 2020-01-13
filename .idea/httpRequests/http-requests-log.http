@@ -1,0 +1,12 @@
+GET http://localhost:8083/api/msg
+
+<> 2019-12-09T050839.200.txt
+
+###
+
+GET http://localhost:8083/api/msg
+
+<> 2019-12-09T050330.200.txt
+
+###
+
