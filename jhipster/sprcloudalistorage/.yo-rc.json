@@ -1,0 +1,41 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.mycompany.storage",
+      "nativeLanguage": "zh-cn"
+    },
+    "jhipsterVersion": "6.6.0",
+    "applicationType": "microservice",
+    "baseName": "sprcloudalistorage",
+    "packageName": "com.mycompany.storage",
+    "packageFolder": "com/mycompany/storage",
+    "serverPort": "8084",
+    "authenticationType": "jwt",
+    "cacheProvider": "redis",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Memory",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "OGU0OTQ4ZTE3NDgwM2Y4MWRkZTBlMmJjN2NiMTU3MTAxOWNjMzUwMDc1MTc5ZjRiY2MwNWRmNTIxYWM4MDg4ZjA2M2FhYWU4OTc2MzRiNGY3MDAwYjJhZWNhM2ExNTFkYzZjMjcxY2MyMzI1NGNlZGExM2M1N2Y1ZWNlMzU3YjM=",
+    "embeddableLaunchScript": false,
+    "creationTimestamp": 1577545125899,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "clientPackageManager": "npm",
+    "nativeLanguage": "zh-cn",
+    "languages": ["zh-cn", "en"],
+    "blueprints": [],
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}
