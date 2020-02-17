@@ -15,6 +15,6 @@
         <module>springbootpoc</module>
         <module>sprcloudaligateway</module>
         <module>sprcloudalistorage</module>
-      <module>flink-exmaples</module>
+<!--      <module>flink-exmaples</module>-->
   </modules>
 </project>

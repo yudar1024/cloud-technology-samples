@@ -25,6 +25,7 @@ management:
       prometheus:
         enabled: false
 
+
 #spring:
 #  devtools:
 #    restart:
@@ -61,11 +62,7 @@ management:
 #      hibernate.order_updates: true
 #      hibernate.query.fail_on_pagination_over_collection_fetch: true
 #      hibernate.query.in_clause_parameter_padding: true
-
-
-
-
-  # Replace by 'prod, faker' to add the faker context and have sample data loaded in production
+# Replace by 'prod, faker' to add the faker context and have sample data loaded in production
 #  liquibase:
 #    contexts: prod
 #    enable: false
