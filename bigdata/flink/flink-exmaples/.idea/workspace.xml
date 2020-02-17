@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c9bf67d7-3711-43d2-9299-a25cb26e2c46" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="D:/devtools/apache-maven-3.6.1" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1W3Xez6Ye1caGSVwE87YTwth7Lo" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RunManager">
+    <configuration name="StreamingJob" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.mycompany.StreamingJob" />
+      <module name="flink-exmaples" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.StreamingJob" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c9bf67d7-3711-43d2-9299-a25cb26e2c46" name="Default Changelist" comment="" />
+      <created>1578379350379</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1578379350379</updated>
+      <workItem from="1578379354789" duration="7130000" />
+    </task>
+    <task id="LOCAL-00001" summary="add flink exmpale">
+      <created>1578387439181</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1578387439181</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add flink exmpale" />
+    <option name="LAST_COMMIT_MESSAGE" value="add flink exmpale" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="446" y="25" key="CommitChangelistDialog2" timestamp="1578387435986">
+      <screen x="0" y="0" width="1603" height="862" />
+    </state>
+    <state x="446" y="25" key="CommitChangelistDialog2/0.0.1603.862@0.0.1603.862" timestamp="1578387435986" />
+    <state width="1559" height="276" key="GridCell.Tab.0.bottom" timestamp="1578650122520">
+      <screen x="0" y="0" width="1603" height="862" />
+    </state>
+    <state width="1559" height="276" key="GridCell.Tab.0.bottom/0.0.1603.862@0.0.1603.862" timestamp="1578650122520" />
+    <state width="1559" height="276" key="GridCell.Tab.0.center" timestamp="1578650122520">
+      <screen x="0" y="0" width="1603" height="862" />
+    </state>
+    <state width="1559" height="276" key="GridCell.Tab.0.center/0.0.1603.862@0.0.1603.862" timestamp="1578650122520" />
+    <state width="1559" height="276" key="GridCell.Tab.0.left" timestamp="1578650122520">
+      <screen x="0" y="0" width="1603" height="862" />
+    </state>
+    <state width="1559" height="276" key="GridCell.Tab.0.left/0.0.1603.862@0.0.1603.862" timestamp="1578650122520" />
+    <state width="1559" height="276" key="GridCell.Tab.0.right" timestamp="1578650122520">
+      <screen x="0" y="0" width="1603" height="862" />
+    </state>
+    <state width="1559" height="276" key="GridCell.Tab.0.right/0.0.1603.862@0.0.1603.862" timestamp="1578650122520" />
+    <state width="1559" height="276" key="GridCell.Tab.1.bottom" timestamp="1578650122521">
+      <screen x="0" y="0" width="1603" height="862" />
+    </state>
+    <state width="1559" height="276" key="GridCell.Tab.1.bottom/0.0.1603.862@0.0.1603.862" timestamp="1578650122521" />
+    <state width="1559" height="276" key="GridCell.Tab.1.center" timestamp="1578650122521">
+      <screen x="0" y="0" width="1603" height="862" />
+    </state>
+    <state width="1559" height="276" key="GridCell.Tab.1.center/0.0.1603.862@0.0.1603.862" timestamp="1578650122521" />
+    <state width="1559" height="276" key="GridCell.Tab.1.left" timestamp="1578650122520">
+      <screen x="0" y="0" width="1603" height="862" />
+    </state>
+    <state width="1559" height="276" key="GridCell.Tab.1.left/0.0.1603.862@0.0.1603.862" timestamp="1578650122520" />
+    <state width="1559" height="276" key="GridCell.Tab.1.right" timestamp="1578650122521">
+      <screen x="0" y="0" width="1603" height="862" />
+    </state>
+    <state width="1559" height="276" key="GridCell.Tab.1.right/0.0.1603.862@0.0.1603.862" timestamp="1578650122521" />
+    <state x="281" y="6" key="SettingsEditor" timestamp="1578379418049">
+      <screen x="0" y="0" width="1603" height="862" />
+    </state>
+    <state x="281" y="6" key="SettingsEditor/0.0.1603.862@0.0.1603.862" timestamp="1578379418049" />
+    <state x="393" y="164" key="Vcs.Push.Dialog.v2" timestamp="1578387441209">
+      <screen x="0" y="0" width="1603" height="862" />
+    </state>
+    <state x="393" y="164" key="Vcs.Push.Dialog.v2/0.0.1603.862@0.0.1603.862" timestamp="1578387441209" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/mycompany/StreamingJob.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
