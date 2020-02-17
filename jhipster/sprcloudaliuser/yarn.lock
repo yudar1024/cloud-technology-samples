@@ -38,10 +38,10 @@
   resolved "https://registry.npm.taobao.org/@nodelib/fs.stat/download/@nodelib/fs.stat-1.1.3.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40nodelib%2Ffs.stat%2Fdownload%2F%40nodelib%2Ffs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha1-K1o6s/kYzKSKjHVMCBaOPwPrphs=
 
-"@openapitools/openapi-generator-cli@0.0.14-4.0.2":
-  version "0.0.14-4.0.2"
-  resolved "https://registry.npm.taobao.org/@openapitools/openapi-generator-cli/download/@openapitools/openapi-generator-cli-0.0.14-4.0.2.tgz#244394f7487a7744a267165828d3d5249842d2a7"
-  integrity sha1-JEOU90h6d0SiZxZYKNPVJJhC0qc=
+"@openapitools/openapi-generator-cli@1.0.10-4.2.3":
+  version "1.0.10-4.2.3"
+  resolved "https://registry.npm.taobao.org/@openapitools/openapi-generator-cli/download/@openapitools/openapi-generator-cli-1.0.10-4.2.3.tgz#4b934362efb9262fc236d4fb81b381e29bdb8245"
+  integrity sha1-S5NDYu+5Ji/CNtT7gbOB4pvbgkU=
 
 "@sindresorhus/is@^0.7.0":
   version "0.7.0"
@@ -1537,10 +1537,10 @@ gauge@~1.2.5:
     lodash.padend "^4.1.0"
     lodash.padstart "^4.1.0"
 
-generator-jhipster@6.7.0:
-  version "6.7.0"
-  resolved "https://registry.npm.taobao.org/generator-jhipster/download/generator-jhipster-6.7.0.tgz#749389b37ee83d577dbc5a811241a93f854ec1b6"
-  integrity sha1-dJOJs37oPVd9vFqBEkGpP4VOwbY=
+generator-jhipster@6.7.1:
+  version "6.7.1"
+  resolved "https://registry.npm.taobao.org/generator-jhipster/download/generator-jhipster-6.7.1.tgz#e4880abfc4f0466dd18aa4295c41a6917bddd635"
+  integrity sha1-5IgKv8TwRm3RiqQpXEGmkXvd1jU=
   dependencies:
     aws-sdk "2.533.0"
     axios "0.19.0"
