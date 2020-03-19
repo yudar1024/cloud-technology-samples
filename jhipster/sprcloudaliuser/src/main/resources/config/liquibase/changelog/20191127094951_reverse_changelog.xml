@@ -1,0 +1,79 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <changeSet author="roger (generated)" id="1574848198770-1">
+        <createTable tableName="my_date_time_wrapper">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="instant" type="timestamp"/>
+            <column name="local_date_time" type="timestamp"/>
+            <column name="offset_date_time" type="timestamp"/>
+            <column name="zoned_date_time" type="timestamp"/>
+            <column name="local_time" type="time"/>
+            <column name="offset_time" type="time"/>
+            <column name="local_date" type="date"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="roger (generated)" id="1574848198770-2">
+        <createTable tableName="my_order">
+            <column name="order_id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="user_id" type="BIGINT"/>
+            <column name="product_id" type="BIGINT"/>
+            <column name="order_no" type="INT"/>
+            <column name="create_time" type="datetime"/>
+            <column name="update_time" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="roger (generated)" id="1574848198770-3">
+        <createTable tableName="my_persistent_audit_event">
+            <column autoIncrement="true" name="event_id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="principal" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="event_date" type="timestamp"/>
+            <column name="event_type" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="roger (generated)" id="1574848198770-4">
+        <createTable tableName="my_persistent_audit_evt_data">
+            <column name="event_id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(150)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="value" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="roger (generated)" id="1574848198770-5">
+        <createTable tableName="my_user">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="age" type="INT"/>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="phone" type="VARCHAR(255)"/>
+            <column name="create_time" type="datetime"/>
+            <column name="update_time" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="roger (generated)" id="1574848198770-6">
+        <createIndex indexName="idx_persistent_audit_event" tableName="my_persistent_audit_event">
+            <column name="principal"/>
+            <column name="event_date"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="roger (generated)" id="1574848198770-7">
+        <createIndex indexName="idx_persistent_audit_evt_data" tableName="my_persistent_audit_evt_data">
+            <column name="event_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="roger (generated)" id="1574848198770-8">
+        <addForeignKeyConstraint baseColumnNames="event_id" baseTableName="my_persistent_audit_evt_data" constraintName="fk_evt_pers_audit_evt_data" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="event_id" referencedTableName="my_persistent_audit_event" validate="true"/>
+    </changeSet>
+</databaseChangeLog>
