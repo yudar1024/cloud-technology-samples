@@ -26,7 +26,7 @@
     "dtoSuffix": "DTO",
     "serverPort": "8082",
     "skipUserManagement": true,
-    "jhipsterVersion": "6.6.0",
+    "jhipsterVersion": "6.8.0",
     "jwtSecretKey": "MDhjYzA5YjIyOGRhN2RhOTM5MDI4YmRiYzU4M2YwMGE4NjE5OWNjMjQ1MTkzYmIyMzhkZDU2ZTFhZTRiNzI3NGI2NWFhNzgyMDhkZTI1Njg1MTAwYzlhMTcwZTE3NGM4NDNmZjdiZmM1ZTkwYTdhNjhjNzkzYmFmY2RmMWU3YjQ=",
     "embeddableLaunchScript": false,
     "entitySuffix": "",
