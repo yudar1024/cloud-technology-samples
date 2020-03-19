@@ -1,0 +1,23 @@
+{
+  "generator-jhipster": {
+    "deploymentType": "kubernetes",
+    "gatewayType": "zuul",
+    "monitoring": "prometheus",
+    "directoryPath": "../",
+    "appsFolders": [
+      "sprcloudaliuser",
+      "sprcloudaliorder",
+      "springbootpoc"
+    ],
+    "clusteredDbApps": [],
+    "consoleOptions": [],
+    "serviceDiscoveryType": false,
+    "dockerRepositoryName": "dockerhub",
+    "dockerPushCommand": "docker push",
+    "kubernetesNamespace": "default",
+    "kubernetesServiceType": "LoadBalancer",
+    "ingressDomain": "",
+    "istio": false,
+    "jwtSecretKey": "YjZiNTcyMmU3ZjQ1ZDc1MmQ4OTk3ZmY5MTI2NDk1NmM0ZTUwNGFlZjRlOTc4OWMyODJhNTEzZTAzM2I2ZmRkYjg2NDYzNjYxNDJiM2JlZTM3NWIyMzE5MjM5NWFmODY0N2E1ZQ=="
+  }
+}
