@@ -4,35 +4,44 @@
   <!-- yarn ha configuration-->
   <property>
     <name>yarn.resourcemanager.ha.enabled</name>
-    <value>true</value>
+    <value>false</value>
   </property>
-  <!-- 定义集群名称 -->
+  <!-- 定义集群名称 
   <property>
     <name>yarn.resourcemanager.cluster-id</name>
     <value>cluster1</value>
   </property>
-  <!-- 定义本机在在高可用集群中的id 要与 yarn.resourcemanager.ha.rm-ids 定义的值对应，如果不作为resource manager 则删除这项配置。-->
+  -->
+  <!-- 定义本机在在高可用集群中的id 要与 yarn.resourcemanager.ha.rm-ids 定义的值对应，如果不作为resource manager 则删除这项配置。
   <property>
     <name>yarn.resourcemanager.ha.id</name>
     <value>rm1</value>
   </property>
-  <!-- 定义高可用集群中的 id 列表 -->
+  -->
+  <!-- 定义高可用集群中的 id 列表
   <property>
     <name>yarn.resourcemanager.ha.rm-ids</name>
-    <!-- <value>rm1,rm2</value> -->
+    <value>rm1,rm2</value>
     <value>rm1</value>
   </property>
+   -->
   <!-- 定义高可用RM集群具体是哪些机器 -->
   <property>
-    <name>yarn.resourcemanager.hostname.rm1</name>
+    <name>yarn.resourcemanager.hostname</name>
     <value>hadoop301</value>
   </property>
   <!-- <property>
     <name>yarn.resourcemanager.hostname.rm2</name>
     <value>hadoop302</value>
   </property> -->
+  <!--
   <property>
     <name>yarn.resourcemanager.webapp.address.rm1</name>
+    <value>hadoop301:8088</value>
+  </property>
+-->
+  <property>
+    <name>yarn.resourcemanager.webapp.address</name>
     <value>hadoop301:8088</value>
   </property>
   <!-- <property>
