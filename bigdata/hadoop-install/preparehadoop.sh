@@ -1,12 +1,12 @@
 # yum install -y java-1.8.0-openjdk-devel.x86_64 java-1.8.0-openjdk.x86_64
 # yum install -y rsync
 
-sudo echo "export HADOOP_HOME=/opt/hadoop-3.2.1" >> ~/.profile
-sudo echo "export JAVA_HOME=/usr/lib/jvm/jre-1.8.0" >> ~/.profile
-sudo echo "export ZOOKEEPER_HOME=/opt/zookeeper-3.5.6" >> ~/.profile
-sudo echo 'export PATH=$PATH:$ZOOKEEPER_HOME/bin' >> ~/.profile
-sudo echo 'export PATH=$PATH:$HADOOP_HOME/bin' >> ~/.profile 
-sudo echo 'export PATH=$PATH:$HADOOP_HOME/sbin' >> ~/.profile
+sudo echo "export HADOOP_HOME=/opt/hadoop-3.2.1" >> ~/.bashrc
+sudo echo "export JAVA_HOME=/usr/lib/jvm/jre-1.8.0" >> ~/.bashrc
+sudo echo "export ZOOKEEPER_HOME=/opt/zookeeper-3.5.6" >> ~/.bashrc
+sudo echo 'export PATH=$PATH:$ZOOKEEPER_HOME/bin' >> ~/.bashrc
+sudo echo 'export PATH=$PATH:$HADOOP_HOME/bin' >> ~/.bashrc 
+sudo echo 'export PATH=$PATH:$HADOOP_HOME/sbin' >> ~/.bashrc
 
 mkdir -p /tmp/hadoop/tmpdir
 mkdir -p /tmp/hadoop/pid
