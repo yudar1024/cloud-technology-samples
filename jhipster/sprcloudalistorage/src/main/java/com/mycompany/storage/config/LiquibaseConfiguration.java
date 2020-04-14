@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.boot.autoconfigure.liquibase.LiquibaseDataSource;
 import org.springframework.boot.autoconfigure.liquibase.LiquibaseProperties;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
@@ -31,7 +30,6 @@ public class LiquibaseConfiguration {
     }
 
     @Bean
-    @ConfigurationProperties(prefix = "spring.liquibase")
     public SpringLiquibase liquibase(@Qualifier("taskExecutor") Executor executor,
             @LiquibaseDataSource ObjectProvider<DataSource> liquibaseDataSource, LiquibaseProperties liquibaseProperties,
             ObjectProvider<DataSource> dataSource, DataSourceProperties dataSourceProperties) {
