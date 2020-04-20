@@ -4,7 +4,7 @@
       "packageName": "com.mycompany.storage",
       "nativeLanguage": "zh-cn"
     },
-    "jhipsterVersion": "6.8.0",
+    "jhipsterVersion": "6.6.0",
     "applicationType": "microservice",
     "baseName": "sprcloudalistorage",
     "packageName": "com.mycompany.storage",
@@ -33,7 +33,10 @@
     "enableTranslation": true,
     "clientPackageManager": "npm",
     "nativeLanguage": "zh-cn",
-    "languages": ["zh-cn", "en"],
+    "languages": [
+      "zh-cn",
+      "en"
+    ],
     "blueprints": [],
     "skipClient": true,
     "skipUserManagement": true
