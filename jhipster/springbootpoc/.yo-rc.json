@@ -28,7 +28,7 @@
     "dtoSuffix": "DTO",
     "serverPort": "8083",
     "skipUserManagement": true,
-    "jhipsterVersion": "6.6.0",
+    "jhipsterVersion": "6.8.0",
     "clientTheme": "none",
     "clientThemeVariant": "",
     "useSass": true,

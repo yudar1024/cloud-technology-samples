@@ -13,13 +13,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.*;
-import org.springframework.beans.factory.DisposableBean;
 import org.springframework.core.env.Environment;
 import org.springframework.core.env.Profiles;
 
+import javax.annotation.PreDestroy;
+
 @Configuration
 @EnableCaching
-public class CacheConfiguration implements DisposableBean {
+public class CacheConfiguration {
 
     private final Logger log = LoggerFactory.getLogger(CacheConfiguration.class);
 
@@ -29,8 +30,8 @@ public class CacheConfiguration implements DisposableBean {
         this.env = env;
     }
 
-    @Override
-    public void destroy() throws Exception {
+    @PreDestroy
+    public void destroy() {
         log.info("Closing Cache Manager");
         Hazelcast.shutdownAll();
     }
@@ -64,7 +65,7 @@ public class CacheConfiguration implements DisposableBean {
         }
         config.getMapConfigs().put("default", initializeDefaultMapConfig(jHipsterProperties));
 
-        // Full reference is available at: http://docs.hazelcast.org/docs/management-center/3.9/manual/html/Deploying_and_Starting.html
+        // Full reference is available at: https://docs.hazelcast.org/docs/management-center/3.9/manual/html/Deploying_and_Starting.html
         config.setManagementCenterConfig(initializeDefaultManagementCenterConfig(jHipsterProperties));
         config.getMapConfigs().put("com.mycompany.poc.domain.*", initializeDomainMapConfig(jHipsterProperties));
         return Hazelcast.newHazelcastInstance(config);
