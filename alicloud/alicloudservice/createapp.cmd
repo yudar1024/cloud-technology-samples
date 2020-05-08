@@ -1,0 +1,1 @@
+jhipster --skip-client --skip-install --skip-user-management --jhi-prefix=my
