@@ -9,13 +9,12 @@ spring:
     driver-class-name: 'com.mysql.cj.jdbc.Driver'
 #   mysql 5.7
 #    driver-class-name: 'com.mysql.jdbc.Driver'
-    url: 'jdbc:mysql://xxx:3306/devtest?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true'
-    username:
-    password:
-    druid:
-      max-active: 20
-      min-idle: 2
-      initial-size: 2
+    url: 'jdbc:mysql://localhost:3306/devtest?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true'
+    username: root
+    password: openstack
+    maxaActive: 20
+    minIdle: 2
+    initial-size: 2
   cloud:
     nacos:
       discovery:
@@ -31,30 +30,35 @@ spring:
     sentinel:
       transport:
         dashboard: localhost:8080
-      eager: true
-      datasource:
-        ds1:
-          file:
-            file: 'classpath: sentinel/flowrule.json'
-            data: json
-            rule: flow
-        ds2:
-          file:
-            file: 'classpath: sentinel/degraderule.json'
-            data: json
-            rule: degrade
-        ds3:
-          file:
-            file: 'classpath: sentinel/authority.json'
-            rule: authority
-        ds4:
-          file:
-            file: 'classpath: sentinel/system.json'
-            rule: system
-        ds5:
-          file:
-            file: 'classpath: sentinel/param-flow.json'
-            rule: param-flow
+      enabled: true
+  liquibase:
+    enabled: true
+    change-log: 'classpath:/config/liquibase/master.xml'
+
+#      eager: true
+#      datasource:
+#        ds1:
+#          file:
+#            file: 'classpath: sentinel/flowrule.json'
+#            data: json
+#            rule: flow
+#        ds2:
+#          file:
+#            file: 'classpath: sentinel/degraderule.json'
+#            data: json
+#            rule: degrade
+#        ds3:
+#          file:
+#            file: 'classpath: sentinel/authority.json'
+#            rule: authority
+#        ds4:
+#          file:
+#            file: 'classpath: sentinel/system.json'
+#            rule: system
+#        ds5:
+#          file:
+#            file: 'classpath: sentinel/param-flow.json'
+#            rule: param-flow
 #      http-method-specify: false
 # 应用服务web访问端口
 server:
@@ -68,12 +72,10 @@ management:
   server:
     port: 8081
   endpoints:
-    jmx:
-      exposure:
-        include: *
     web:
       exposure:
-        include: *
+        include: ['*']
+      base-path: '/management'
   endpoint:
     health:
       show-details: always
@@ -115,21 +117,21 @@ management:
 #################################### dubbo config : ####################################
 # 微服务治理控制台(Dubbo): https://edas.console.aliyun.com/#/dubboManage/SPServiceSearchConfig
 # dubbo 服务扫描基础包路径
-dubbo:
-  protocol:
-    id: dubbo
+#dubbo:
+#  protocol:
+#    id: dubbo
 #   Dubbo 服务暴露的协议配置，其中子属性 name 为协议名称，port 为协议端口（ -1 表示自增端口，从 20880 开始）
-    name: dubbo
-    port: -1
-  scan:
-    base-package: com.mycompany.alicloudap
+#    name: dubbo
+#    port: -1
+#  scan:
+#    base-package: com.mycompany.alicloudap
 # 挂载到 Spring Cloud 注册中心
-  registry:
-    address: //localhost
+#  registry:
+#    address: //localhost
 # 用于服务消费方订阅服务提供方的应用名称的列表，若需订阅多应用，使用 "," 分割。 不推荐使用默认值为 "*"，它将订阅所有应用。
 # 这里默认使用了当前应用名，请根据需要增加对应的应用名
-  cloud:
-    subscribed-services: alicloudapp
+#  cloud:
+#    subscribed-services: alicloudapp
 
 
 
