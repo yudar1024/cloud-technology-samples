@@ -3,28 +3,18 @@ package com.mycompany.myapp.web.rest;
 import com.mycompany.myapp.AlicloudserviceApp;
 import com.mycompany.myapp.RedisTestContainerExtension;
 import com.mycompany.myapp.config.TestSecurityConfiguration;
-import io.github.jhipster.config.JHipsterProperties;
-import com.mycompany.myapp.config.audit.AuditEventConverter;
 import com.mycompany.myapp.domain.PersistentAuditEvent;
-import com.mycompany.myapp.repository.PersistenceAuditEventRepository;
 import com.mycompany.myapp.security.AuthoritiesConstants;
 
-import com.mycompany.myapp.service.AuditEventService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.web.PageableHandlerMethodArgumentResolver;
-import org.springframework.format.support.FormattingConversionService;
 import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
-import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Instant;

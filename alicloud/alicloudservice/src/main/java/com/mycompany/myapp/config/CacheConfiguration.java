@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.cache.JCacheManagerCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import javax.cache.configuration.MutableConfiguration;
@@ -21,6 +22,7 @@ import io.github.jhipster.config.JHipsterProperties;
 @EnableCaching
 public class CacheConfiguration {
 
+//    使用Redisson 作为redis 客户端
     @Bean
     public javax.cache.configuration.Configuration<Object, Object> jcacheConfiguration(JHipsterProperties jHipsterProperties) {
         MutableConfiguration<Object, Object> jcacheConfig = new MutableConfiguration<>();
@@ -37,11 +39,18 @@ public class CacheConfiguration {
 
 
     @Bean
-    public JCacheManagerCustomizer cacheManagerCustomizer(javax.cache.configuration.Configuration<Object, Object> jcacheConfiguration) {
+    public JCacheManagerCustomizer cacheManagerCustomizer(javax.cache.configuration.Configuration<Object, Object> jcacheConfiguration,ApplicationProperties applicationProperties) {
+
+        RedissonConfiguration configuration = (RedissonConfiguration) jcacheConfiguration;
+        MutableConfiguration jcacheConfig = (MutableConfiguration)configuration.getJcacheConfig();
+
+        Random random = new Random();
+        final int duration = random.nextInt(applicationProperties.getCache().getMaxExpiration() - applicationProperties.getCache().getMinExpiration() + 1) + applicationProperties.getCache().getMinExpiration();
+        jcacheConfig.setExpiryPolicyFactory(CreatedExpiryPolicy.factoryOf(new Duration(TimeUnit.SECONDS,duration)));
         return cm -> {
-            createCache(cm, com.mycompany.myapp.repository.UserRepository.USERS_BY_LOGIN_CACHE, jcacheConfiguration);
-            createCache(cm, com.mycompany.myapp.repository.UserRepository.USERS_BY_EMAIL_CACHE, jcacheConfiguration);
-            // jhipster-needle-redis-add-entry
+            createCache(cm, "cm1", configuration);
+            createCache(cm, "cm2", configuration);
+
         };
     }
 
@@ -51,5 +60,6 @@ public class CacheConfiguration {
             cm.createCache(cacheName, jcacheConfiguration);
         }
     }
+
 
 }

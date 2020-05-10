@@ -1,10 +1,9 @@
-package com.mycompany.alicloudapp.sentinel;
+package com.mycompany.myapp.config.sentinel;
 
 import com.alibaba.cloud.sentinel.annotation.SentinelRestTemplate;
 import com.alibaba.csp.sentinel.datasource.Converter;
-import org.springframework.boot.SpringApplication;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 
 

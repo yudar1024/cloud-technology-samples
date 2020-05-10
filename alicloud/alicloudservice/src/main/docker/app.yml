@@ -12,11 +12,9 @@ services:
       # - JHIPSTER_CACHE_REDIS_SERVER=redis://alicloudservice-redis:6379
       # - JHIPSTER_CACHE_REDIS_CLUSTER=true
       - SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_OIDC_ISSUER_URI=http://keycloak:9080/auth/realms/jhipster
-      - SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_ID=web_app
-      - SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_SECRET=web_app
+      - SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_ID=internal
+      - SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_SECRET=internal
       - JHIPSTER_SLEEP=30 # gives time for other services to boot before the application
-    ports:
-      - 8080:8080
   alicloudservice-mysql:
     extends:
       file: mysql.yml
@@ -25,7 +23,3 @@ services:
     extends:
       file: redis.yml
       service: alicloudservice-redis
-  keycloak:
-    extends:
-      file: keycloak.yml
-      service: keycloak

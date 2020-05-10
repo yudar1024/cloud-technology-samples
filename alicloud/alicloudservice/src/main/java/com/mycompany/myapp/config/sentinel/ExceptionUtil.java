@@ -1,4 +1,4 @@
-package com.mycompany.alicloudapp.sentinel;
+package com.mycompany.myapp.config.sentinel;
 
 import com.alibaba.cloud.sentinel.rest.SentinelClientHttpResponse;
 import com.alibaba.csp.sentinel.slots.block.BlockException;

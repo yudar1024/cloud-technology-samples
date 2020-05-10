@@ -1,7 +1,6 @@
 package com.mycompany.myapp.service.mapper;
 
 import com.mycompany.myapp.domain.User;
-import com.mycompany.myapp.service.dto.UserDTO;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

@@ -1,4 +1,4 @@
-package com.mycompany.alicloudapp.sentinel;
+package com.mycompany.myapp.config.sentinel;
 
 import com.alibaba.csp.sentinel.datasource.Converter;
 import com.alibaba.csp.sentinel.slots.block.flow.FlowRule;

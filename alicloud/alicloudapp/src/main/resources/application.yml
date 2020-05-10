@@ -231,6 +231,10 @@ management:
 #      cluster: default
 #      server-addr: localhost
 
+#整合feign与sentinel
+feign:
+  sentinel:
+    enabled: true
 
 
 

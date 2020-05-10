@@ -1,15 +1,14 @@
 {
   "generator-jhipster": {
     "promptValues": {
-      "packageName": "com.mycompany.myapp",
-      "nativeLanguage": "zh-cn"
+      "packageName": "com.mycompany.myapp"
     },
     "jhipsterVersion": "6.8.0",
-    "applicationType": "monolith",
+    "applicationType": "microservice",
     "baseName": "alicloudservice",
     "packageName": "com.mycompany.myapp",
     "packageFolder": "com/mycompany/myapp",
-    "serverPort": "8080",
+    "serverPort": "8081",
     "authenticationType": "oauth2",
     "cacheProvider": "redis",
     "enableHibernateCache": false,
@@ -22,19 +21,23 @@
     "serviceDiscoveryType": false,
     "buildTool": "maven",
     "enableSwaggerCodegen": false,
+    "jwtSecretKey": "YWUwNTViYjkxYWMyYWNiYTAxNGQxNTE0MGFjOGZiNDBhODE4NmIxZGI0ODBiZTA0YmEzZDRkODE0MzE1MmE3YTdlOWVmMDcyODYxZjMxN2FmMzUyYTAxZWE1MDhiYjAwYTU2ZjRmNjk0MDk5ZTZjMDY3ZmVmN2M5YjE4YmZlMWE=",
     "embeddableLaunchScript": false,
-    "creationTimestamp": 1588920350452,
+    "creationTimestamp": 1589075143440,
     "testFrameworks": [],
     "jhiPrefix": "my",
     "entitySuffix": "",
     "dtoSuffix": "DTO",
     "otherModules": [],
-    "enableTranslation": true,
+    "enableTranslation": false,
     "clientPackageManager": "npm",
-    "nativeLanguage": "zh-cn",
-    "languages": ["zh-cn", "en"],
     "blueprints": [],
     "skipClient": true,
-    "skipUserManagement": true
+    "skipUserManagement": true,
+    "appsFolders": ["alicloudservice"],
+    "directoryPath": "../",
+    "gatewayType": "zuul",
+    "monitoring": "no",
+    "consoleOptions": []
   }
 }
