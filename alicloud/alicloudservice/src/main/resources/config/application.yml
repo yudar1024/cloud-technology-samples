@@ -127,7 +127,7 @@ info:
 
 jhipster:
   clientApp:
-    name: 'alicloudserviceApp'
+    name: ${spring.application.name}
   # By default CORS is disabled. Uncomment to enable.
   # cors:
   #     allowed-origins: "*"

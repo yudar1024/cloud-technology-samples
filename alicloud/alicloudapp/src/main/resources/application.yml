@@ -22,6 +22,7 @@ spring:
         server-addr: localhost:8848
         username: nacos
         password: nacos
+
       config:
         server-addr: localhost:8848
         username: nacos
@@ -31,6 +32,15 @@ spring:
       transport:
         dashboard: localhost:8080
       enabled: true
+      datasource:
+        flowrule:
+          nacos:
+            server-addr: localhost:8848
+            data-id: alicloudapp-flowrule
+            data-type: json
+            rule-type: flow  # flow,system,degrade,param-flow,authority 5种
+      http-method-specify: false
+
   liquibase:
     enabled: true
     change-log: 'classpath:/config/liquibase/master.xml'
@@ -63,6 +73,13 @@ spring:
 # 应用服务web访问端口
 server:
   port: 8081
+
+#整合feign与sentinel
+feign:
+  sentinel:
+    enabled: true
+  hystrix:
+    enabled: false
 
 management:
   health:
@@ -231,10 +248,7 @@ management:
 #      cluster: default
 #      server-addr: localhost
 
-#整合feign与sentinel
-feign:
-  sentinel:
-    enabled: true
+
 
 
 
