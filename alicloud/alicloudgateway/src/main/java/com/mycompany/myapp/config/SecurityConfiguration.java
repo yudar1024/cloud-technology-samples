@@ -4,7 +4,7 @@ import com.mycompany.myapp.security.AuthoritiesConstants;
 import com.mycompany.myapp.security.SecurityUtils;
 import com.mycompany.myapp.security.oauth2.AudienceValidator;
 import com.mycompany.myapp.security.oauth2.JwtGrantedAuthorityConverter;
-import com.mycompany.myapp.service.AuditEventService;
+//import com.mycompany.myapp.service.AuditEventService;
 import org.springframework.security.authentication.AbstractAuthenticationToken;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
 import io.github.jhipster.web.filter.reactive.CookieCsrfFilter;
@@ -53,7 +53,7 @@ import static org.springframework.security.web.server.util.matcher.ServerWebExch
 @Import(SecurityProblemSupport.class)
 public class SecurityConfiguration {
 
-    private final AuditEventService auditEventService;
+//    private final AuditEventService auditEventService;
 
 
     @Value("${spring.security.oauth2.client.provider.oidc.issuer-uri}")
@@ -63,8 +63,9 @@ public class SecurityConfiguration {
 
     private final SecurityProblemSupport problemSupport;
 
-    public SecurityConfiguration(AuditEventService auditEventService, JHipsterProperties jHipsterProperties, SecurityProblemSupport problemSupport) {
-        this.auditEventService = auditEventService;
+//    public SecurityConfiguration(AuditEventService auditEventService, JHipsterProperties jHipsterProperties, SecurityProblemSupport problemSupport) {
+    public SecurityConfiguration(JHipsterProperties jHipsterProperties, SecurityProblemSupport problemSupport) {
+//        this.auditEventService = auditEventService;
         this.jHipsterProperties = jHipsterProperties;
         this.problemSupport = problemSupport;
     }
@@ -97,12 +98,14 @@ public class SecurityConfiguration {
         .and()
             .authorizeExchange()
             .pathMatchers("/api/auth-info").permitAll()
-            .pathMatchers("/api/**").authenticated()
-            .pathMatchers("/services/**", "/swagger-resources/**", "/v2/api-docs").authenticated()
+            .pathMatchers("/api/**").permitAll()
+            .pathMatchers("/services/**", "/swagger-resources/**", "/v2/api-docs","/swagger-ui.html","/webjars/**").permitAll()
             .pathMatchers("/management/health").permitAll()
             .pathMatchers("/management/info").permitAll()
             .pathMatchers("/management/prometheus").permitAll()
-            .pathMatchers("/management/**").hasAuthority(AuthoritiesConstants.ADMIN);
+//            .pathMatchers("/management/**").hasAuthority(AuthoritiesConstants.ADMIN);
+            .pathMatchers("/management/**").permitAll();
+//            .pathMatchers("/**").permitAll();
 
         http.oauth2Login()
             .authenticationSuccessHandler(this::onAuthenticationSuccess)
@@ -170,7 +173,7 @@ public class SecurityConfiguration {
             .filter(principal -> principal instanceof OidcUser)
             .map(principal -> ((OidcUser) principal).getPreferredUsername())
             .filter(login -> !Constants.ANONYMOUS_USER.equals(login))
-            .flatMap(auditEventService::saveAuthenticationSuccess)
+//            .flatMap(auditEventService::saveAuthenticationSuccess)
             .then();
     }
 

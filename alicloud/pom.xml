@@ -12,5 +12,6 @@
     <modules>
         <module>alicloudapp</module>
         <module>alicloudservice</module>
+        <module>alicloudgateway</module>
   	</modules>
 </project>

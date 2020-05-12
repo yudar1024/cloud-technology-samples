@@ -42,8 +42,6 @@ spring:
     password:
   messages:
     cache-duration: PT1S # 1 second, see the ISO 8601 standard
-  thymeleaf:
-    cache: false
   sleuth:
     sampler:
       probability: 1 # report 100% of traces
@@ -53,9 +51,23 @@ spring:
     locator:
       discovery:
         enabled: true
-
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        username: nacos
+        password: nacos
+      config:
+        context-path: /nacos
+        server-addr: localhost:8848
+        username: nacos
+        password: nacos
+    sentinel:
+      enabled: true
+      transport:
+        dashboard: localhost:8080
 server:
-  port: 8080
+  port: 9090
 
 # ===================================================================
 # JHipster specific properties

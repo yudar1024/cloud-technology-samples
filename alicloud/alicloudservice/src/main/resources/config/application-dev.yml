@@ -26,7 +26,7 @@ spring:
         server-addr: localhost:8848
         username: nacos
         password: nacos
-        context-path: nacos
+        context-path: /nacos
       discovery:
         server-addr: localhost:8848
         username: nacos
