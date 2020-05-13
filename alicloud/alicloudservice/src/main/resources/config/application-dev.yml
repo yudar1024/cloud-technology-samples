@@ -52,15 +52,19 @@ spring:
     serialization:
       indent-output: true
   datasource:
+    name: mystorage
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:h2:mem:alicloudservice;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-    password:
+#    url: jdbc:h2:mem:alicloudservice;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    url: 'jdbc:mysql://localhost:3306/devtest?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true'
+    password: openstack
     druid:
       min-idle: 2
       max-active: 4
       initial-size: 2
-    username: alicloudservice
-    driver-class-name: org.h2.Driver
+    username: root
+#    driver-class-name: org.h2.Driver
+    driver-class-name: 'com.mysql.cj.jdbc.Driver'
+
   h2:
     console:
       enabled: false

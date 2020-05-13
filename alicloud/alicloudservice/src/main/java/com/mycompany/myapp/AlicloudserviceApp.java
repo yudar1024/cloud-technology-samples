@@ -6,6 +6,7 @@ import io.github.jhipster.config.DefaultProfileUtil;
 import io.github.jhipster.config.JHipsterConstants;
 
 import org.apache.commons.lang3.StringUtils;
+import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -24,6 +25,7 @@ import java.util.Collection;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableConfigurationProperties({LiquibaseProperties.class, ApplicationProperties.class})
+@MapperScan("com.mycompany.myapp.mapper")
 public class AlicloudserviceApp {
 
     private static final Logger log = LoggerFactory.getLogger(AlicloudserviceApp.class);

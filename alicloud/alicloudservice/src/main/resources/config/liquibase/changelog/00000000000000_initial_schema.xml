@@ -114,13 +114,25 @@
             <column autoIncrement="${autoIncrement}" name="id" type="BIGINT">
                 <constraints primaryKey="true" primaryKeyName="my_date_time_wrapperPK"/>
             </column>
-            <column name="instant" type="timestamp"/>
+            <column name="userId" type="timestamp"/>
             <column name="local_date_time" type="timestamp"/>
             <column name="offset_date_time" type="timestamp"/>
             <column name="zoned_date_time" type="timestamp"/>
             <column name="local_time" type="time"/>
             <column name="offset_time" type="time"/>
             <column name="local_date" type="date"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="jhipster" id="00000000000003" context="test">
+        <createTable tableName="order_tbl">
+            <column autoIncrement="${autoIncrement}" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="my_date_time_wrapperPK"/>
+            </column>
+            <column name="user_id" type="varchar(255)"/>
+            <column name="commodity_code" type="varchar(255)"/>
+            <column name="count" type="int(11)"/>
+            <column name="money" type="int(11)"/>
         </createTable>
     </changeSet>
 </databaseChangeLog>
