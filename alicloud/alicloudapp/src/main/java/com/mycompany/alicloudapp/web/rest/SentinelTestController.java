@@ -1,4 +1,4 @@
-package com.mycompany.alicloudapp.sentinel;
+package com.mycompany.alicloudapp.web.rest;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.csp.sentinel.slots.block.BlockException;

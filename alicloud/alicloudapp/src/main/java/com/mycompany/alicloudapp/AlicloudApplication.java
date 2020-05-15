@@ -2,6 +2,7 @@ package com.mycompany.alicloudapp;
 
 import com.mycompany.alicloudapp.constants.ProfilesConstants;
 import org.apache.commons.lang3.StringUtils;
+import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -26,7 +27,7 @@ public class AlicloudApplication {
 	@PostConstruct
 	public void initApplication() {
 		Collection<String> activeProfiles = Arrays.asList(env.getActiveProfiles());
-		if (activeProfiles.contains(ProfilesConstants.DEV) && activeProfiles.contains(ProfilesConstants.DEV)) {
+		if (activeProfiles.contains(ProfilesConstants.DEV) && activeProfiles.contains(ProfilesConstants.PROD)) {
 			log.error("You have misconfigured your application! It should not run " +
 					"with both the 'dev' and 'prod' profiles at the same time.");
 		}

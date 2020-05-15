@@ -32,27 +32,27 @@ import org.springframework.web.client.RestTemplate;
 @EnableFeignClients
 public class BusinessConfiguration {
 
-	@Bean
-	public RestTemplate restTemplate() {
-		return new RestTemplate();
-	}
-
-	@FeignClient(value = "storage", url = "http://127.0.0.1:18082")
-	public interface StorageService {
-
-		@RequestMapping(path = "/storage/{commodityCode}/{count}")
-		String storage(@RequestParam("commodityCode") String commodityCode,
-                       @RequestParam("count") int count);
-
-	}
-
-	@FeignClient(value = "order", url = "http://127.0.0.1:18083")
-	public interface OrderService {
-
-		@PostMapping(path = "/order")
-		String order(@RequestParam("userId") String userId,
-                     @RequestParam("commodityCode") String commodityCode,
-                     @RequestParam("orderCount") int orderCount);
-
-	}
+//	@Bean
+//	public RestTemplate restTemplate() {
+//		return new RestTemplate();
+//	}
+//
+//	@FeignClient(value = "storage", url = "http://127.0.0.1:18082")
+//	public interface StorageService {
+//
+//		@RequestMapping(path = "/storage/{commodityCode}/{count}")
+//		String storage(@RequestParam("commodityCode") String commodityCode,
+//                       @RequestParam("count") int count);
+//
+//	}
+//
+//	@FeignClient(value = "order", url = "http://127.0.0.1:18083")
+//	public interface OrderService {
+//
+//		@PostMapping(path = "/order")
+//		String order(@RequestParam("userId") String userId,
+//                     @RequestParam("commodityCode") String commodityCode,
+//                     @RequestParam("orderCount") int orderCount);
+//
+//	}
 }

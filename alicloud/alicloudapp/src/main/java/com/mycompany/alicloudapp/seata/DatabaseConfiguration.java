@@ -37,35 +37,35 @@ import org.springframework.jdbc.core.JdbcTemplate;
 @Configuration
 public class DatabaseConfiguration {
 
-	private final ApplicationContext applicationContext;
-
-	public DatabaseConfiguration(ApplicationContext applicationContext) {
-		this.applicationContext = applicationContext;
-	}
-
-	@Bean
-	@ConfigurationProperties(prefix = "spring.datasource")
-	public DruidDataSource druidDataSource() throws SQLException {
-		DruidDataSource druidDataSource = new DruidDataSource();
-		return druidDataSource;
-	}
-
-	@Bean
-	public DataSourceProxy dataSourceProxy(DruidDataSource druid) {
-		return new DataSourceProxy(druid);
-	}
-
-	@Bean
-	public JdbcTemplate jdbcTemplate(DataSourceProxy dataSourceProxy) {
-
-		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSourceProxy);
-
-		jdbcTemplate.update("delete from storage_tbl where commodity_code = 'C00321'");
-		jdbcTemplate.update(
-				"insert into storage_tbl(commodity_code, count) values ('C00321', 100)");
-
-		return jdbcTemplate;
-
-	}
+//	private final ApplicationContext applicationContext;
+//
+//	public DatabaseConfiguration(ApplicationContext applicationContext) {
+//		this.applicationContext = applicationContext;
+//	}
+//
+//	@Bean
+//	@ConfigurationProperties(prefix = "spring.datasource")
+//	public DruidDataSource druidDataSource() throws SQLException {
+//		DruidDataSource druidDataSource = new DruidDataSource();
+//		return druidDataSource;
+//	}
+//
+//	@Bean
+//	public DataSourceProxy dataSourceProxy(DruidDataSource druid) {
+//		return new DataSourceProxy(druid);
+//	}
+//
+//	@Bean
+//	public JdbcTemplate jdbcTemplate(DataSourceProxy dataSourceProxy) {
+//
+//		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSourceProxy);
+//
+//		jdbcTemplate.update("delete from storage_tbl where commodity_code = 'C00321'");
+//		jdbcTemplate.update(
+//				"insert into storage_tbl(commodity_code, count) values ('C00321', 100)");
+//
+//		return jdbcTemplate;
+//
+//	}
 
 }
