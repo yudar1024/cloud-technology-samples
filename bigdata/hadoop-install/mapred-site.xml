@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl" ?>
+<configuration>
+  <property>
+    <name>mapreduce.framework.name</name>
+    <value>yarn</value>
+  </property>
+  <property>
+    <name>mapreduce.application.classpath</name>
+    <value>  
+        /opt/hadoop-3.2.1/share/hadoop/common/*,
+        /opt/hadoop-3.2.1/share/hadoop/common/lib/*,
+        /opt/hadoop-3.2.1/share/hadoop/hdfs/*,
+        /opt/hadoop-3.2.1/share/hadoop/hdfs/lib/*,
+        /opt/hadoop-3.2.1/share/hadoop/mapreduce/*,
+        /opt/hadoop-3.2.1/share/hadoop/mapreduce/lib/*,
+        /opt/hadoop-3.2.1/share/hadoop/yarn/*,
+        /opt/hadoop-3.2.1/share/hadoop/yarn/lib/*
+    </value>
+  </property>
+
+</configuration>

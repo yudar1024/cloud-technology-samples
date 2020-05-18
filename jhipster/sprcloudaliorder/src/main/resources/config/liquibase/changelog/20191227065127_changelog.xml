@@ -1,0 +1,46 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <changeSet author="roger (generated)" id="1577429493118-1">
+        <createTable tableName="order_tbl">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="user_id" type="VARCHAR(255)"/>
+            <column name="commodity_code" type="VARCHAR(255)"/>
+            <column defaultValueNumeric="0" name="count" type="INT"/>
+            <column defaultValueNumeric="0" name="money" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="roger (generated)" id="1577429493118-2">
+        <createTable tableName="undo_log">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="branch_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="xid" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="context" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rollback_info" type="LONGBLOB">
+                <constraints nullable="false"/>
+            </column>
+            <column name="log_status" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="log_created" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="log_modified" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ext" type="VARCHAR(100)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="roger (generated)" id="1577429493118-3">
+        <addUniqueConstraint columnNames="xid, branch_id" constraintName="ux_undo_log" tableName="undo_log"/>
+    </changeSet>
+</databaseChangeLog>
