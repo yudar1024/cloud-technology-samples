@@ -105,17 +105,13 @@ public class SecurityConfiguration {
             .pathMatchers("/management/prometheus").permitAll()
 //            .pathMatchers("/management/**").hasAuthority(AuthoritiesConstants.ADMIN);
             .pathMatchers("/management/**").permitAll();
-//            .pathMatchers("/**").permitAll();
 
         http.oauth2Login()
-            .authenticationSuccessHandler(this::onAuthenticationSuccess)
-        .and()
-.oauth2ResourceServer()
-            .jwt()
-            .jwtAuthenticationConverter(jwtAuthenticationConverter())
-        .and()
             .and()
-            .oauth2Client();
+            .oauth2ResourceServer()
+                .jwt()
+                .jwtAuthenticationConverter(jwtAuthenticationConverter());
+        http.oauth2Client();
         // @formatter:on
         return http.build();
     }
@@ -163,18 +159,6 @@ public class SecurityConfiguration {
         jwtDecoder.setJwtValidator(withAudience);
 
         return jwtDecoder;
-    }
-
-    private ServerAuthenticationSuccessHandler redirectServerAuthenticationSuccessHandler = new RedirectServerAuthenticationSuccessHandler();
-
-    private Mono<Void> onAuthenticationSuccess(WebFilterExchange exchange, Authentication authentication) {
-        return redirectServerAuthenticationSuccessHandler.onAuthenticationSuccess(exchange, authentication)
-            .thenReturn(authentication.getPrincipal())
-            .filter(principal -> principal instanceof OidcUser)
-            .map(principal -> ((OidcUser) principal).getPreferredUsername())
-            .filter(login -> !Constants.ANONYMOUS_USER.equals(login))
-//            .flatMap(auditEventService::saveAuthenticationSuccess)
-            .then();
     }
 
 }
