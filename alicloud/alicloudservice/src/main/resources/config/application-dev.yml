@@ -55,7 +55,7 @@ spring:
     name: mystorage
     type: com.alibaba.druid.pool.DruidDataSource
     #    url: jdbc:h2:mem:alicloudservice;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-    url: 'jdbc:mysql://localhost:3306/devtest?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true'
+    url: 'jdbc:mysql://localhost:3306/seata_order?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true'
     password: openstack
     druid:
       min-idle: 2
