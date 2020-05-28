@@ -18,6 +18,7 @@ logging:
     ROOT: DEBUG
     io.github.jhipster: DEBUG
     com.mycompany.myapp: DEBUG
+    com.alibaba.nacos.client.naming: INFO
 
 spring:
   profiles:
@@ -65,9 +66,9 @@ spring:
     sentinel:
       enabled: true
       transport:
-        dashboard: localhost:8080
+        dashboard: localhost:9090
 server:
-  port: 9090
+  port: 8080
 
 # ===================================================================
 # JHipster specific properties

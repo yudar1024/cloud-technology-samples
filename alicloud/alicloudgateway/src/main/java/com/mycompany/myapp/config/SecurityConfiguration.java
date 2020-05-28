@@ -98,13 +98,14 @@ public class SecurityConfiguration {
         .and()
             .authorizeExchange()
             .pathMatchers("/api/auth-info").permitAll()
-            .pathMatchers("/api/**").permitAll()
-            .pathMatchers("/services/**", "/swagger-resources/**", "/v2/api-docs","/swagger-ui.html","/webjars/**").permitAll()
+            .pathMatchers("/api/**").authenticated()
+            .pathMatchers("/services/**", "/swagger-resources/**", "/v2/api-docs","/swagger-ui.html","/webjars/**").authenticated()
             .pathMatchers("/management/health").permitAll()
             .pathMatchers("/management/info").permitAll()
             .pathMatchers("/management/prometheus").permitAll()
 //            .pathMatchers("/management/**").hasAuthority(AuthoritiesConstants.ADMIN);
-            .pathMatchers("/management/**").permitAll();
+            .pathMatchers("/management/**").permitAll()
+            .pathMatchers("/").permitAll();
 
         http.oauth2Login()
             .and()
