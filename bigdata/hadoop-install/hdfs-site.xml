@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl" ?>
+
+<configuration>
+  <!-- hdfs HA configuration-->
+  <!-- all default configuration can be found at https://hadoop.apache.org/docs/stable|<can be a version liek r3.2.1></can>/hadoop-project-dist/hadoop-hdfs//hdfs-default.xml -->
+
+  <property>
+    <name>dfs.ha.automatic-failover.enabled</name>
+    <value>true</value>
+  </property>
+  <!-- dfs.nameservices 这里需要与core-site.xml 中fs.defaultFS 的名称一致-->
+  <property>
+    <name>dfs.nameservices</name>
+    <value>mycluster</value>
+  </property>
+  <!-- 定义集群中 namenode 列表，这里定义了三个namenode，分别是nn1,nn2,nn3-->
+  <property>
+    <name>dfs.ha.namenodes.mycluster</name>
+    <value>nn1</value>
+    <!-- <value>nn1,nn2,nn3</value> -->
+  </property>
+  <!-- namenode nn1的具体定义，这里要和 dfs.ha.namenodes.mycluster 定义的列表对应 -->
+  <property>
+    <name>dfs.namenode.rpc-address.mycluster.nn1</name>
+    <value>hadoop301:8020</value>
+  </property>
+  <!-- <property>
+    <name>dfs.namenode.rpc-address.mycluster.nn2</name>
+    <value>hadoop302:8020</value>
+  </property>
+  <property>
+    <name>dfs.namenode.rpc-address.mycluster.nn3</name>
+    <value>hadoop303:8020</value>
+  </property> -->
+  <!-- namenode nn1的具体定义，这里要和 dfs.ha.namenodes.mycluster 定义的列表对应 -->
+  <property>
+    <name>dfs.namenode.http-address.mycluster.nn1</name>
+    <value>hadoop301:9870</value>
+  </property>
+  <!-- <property>
+    <name>dfs.namenode.http-address.mycluster.nn2</name>
+    <value>hadoop302:9870</value>
+  </property>
+  <property>
+    <name>dfs.namenode.http-address.mycluster.nn3</name>
+    <value>hadoop303:9870</value>
+  </property> -->
+  <!-- 指定NameNode的元数据在JournalNode上的存放位置 -->
+  <property>
+    <name>dfs.namenode.shared.edits.dir</name>
+    <!-- <value>qjournal://hadoop301:8485;hadoop302:8485;hadoop303:8485/mycluster</value> -->
+    <value>qjournal://hadoop301:8485/mycluster</value>
+  </property>
+  <!-- 指定JournalNode在本地磁盘存放数据的位置 -->
+  <property>
+    <name>dfs.journalnode.edits.dir</name>
+    <value>/tmp/hadoop/journalnode/data</value>
+  </property>
+  <!-- 配置失败自动切换实现方式 -->
+  <property>
+    <name>dfs.client.failover.proxy.provider.mycluster</name>
+    <value>org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider</value>
+  </property>
+  <!-- 配置隔离机制方法，多个机制用换行分割，即每个机制暂用一行-->
+  <property>
+    <name>dfs.ha.fencing.methods</name>
+    <value>sshfence</value>
+  </property>
+  <!-- 使用sshfence隔离机制时需要ssh免登陆 -->
+  <property>
+    <name>dfs.ha.fencing.ssh.private-key-files</name>
+    <value>~/.ssh/id_rsa</value>
+  </property>
+  <!-- 配置sshfence隔离机制超时时间 -->
+  <property>
+    <name>dfs.ha.fencing.ssh.connect-timeout</name>
+    <value>30000</value>
+  </property>
+  <property>
+    <name>dfs.journalnode.http-address</name>
+    <value>0.0.0.0:8480</value>
+  </property>
+  <property>
+    <name>dfs.journalnode.rpc-address</name>
+    <value>0.0.0.0:8485</value>
+  </property>
+  <!-- hdfs HA configuration end-->
+
+  <property>
+    <name>dfs.replication</name>
+    <value>1</value>
+  </property>
+  <property>
+    <name>dfs.namenode.name.dir</name>
+    <value>/tmp/hadoop/hdfs/namenode</value>
+  </property>
+  <property>
+    <name>dfs.datanode.data.dir</name>
+    <value>/tmp/hadoop/hdfs/datanode</value>
+  </property>
+  <!--开启webhdfs接口访问-->
+  <property>
+    <name>dfs.webhdfs.enabled</name>
+    <value>true</value>
+  </property>
+  <!-- 关闭权限验证，hive可以直连 -->
+  <property>
+    <name>dfs.permissions.enabled</name>
+    <value>false</value>
+  </property>
+</configuration>
