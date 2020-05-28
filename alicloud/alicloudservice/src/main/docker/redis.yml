@@ -1,6 +1,6 @@
 version: '2'
 services:
   alicloudservice-redis:
-    image: redis:5.0.7
+    image: redis:5.0.9
     ports:
       - '6379:6379'

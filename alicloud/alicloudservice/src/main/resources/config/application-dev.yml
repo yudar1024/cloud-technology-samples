@@ -54,7 +54,7 @@ spring:
   datasource:
     name: mystorage
     type: com.alibaba.druid.pool.DruidDataSource
-#    url: jdbc:h2:mem:alicloudservice;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    #    url: jdbc:h2:mem:alicloudservice;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
     url: 'jdbc:mysql://localhost:3306/devtest?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true'
     password: openstack
     druid:
@@ -62,12 +62,13 @@ spring:
       max-active: 4
       initial-size: 2
     username: root
-#    driver-class-name: org.h2.Driver
+    #    driver-class-name: org.h2.Driver
     driver-class-name: 'com.mysql.cj.jdbc.Driver'
 
   h2:
     console:
       enabled: false
+
   liquibase:
     # Remove 'faker' if you do not want the sample data to be loaded automatically
     contexts: dev, faker
