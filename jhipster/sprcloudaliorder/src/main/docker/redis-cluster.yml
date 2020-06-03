@@ -1,0 +1,72 @@
+version: '2'
+services:
+  sprcloudaliorder-redis:
+    image: redis:5.0.7
+    command:
+      - 'redis-server'
+      - '--port 6379'
+      - '--cluster-enabled yes'
+      - '--cluster-config-file nodes.conf'
+      - '--cluster-node-timeout 5000'
+      - '--appendonly yes'
+    ports:
+      - '6379:6379'
+  sprcloudaliorder-redis-1:
+    image: redis:5.0.7
+    command:
+      - 'redis-server'
+      - '--port 6379'
+      - '--cluster-enabled yes'
+      - '--cluster-config-file nodes.conf'
+      - '--cluster-node-timeout 5000'
+      - '--appendonly yes'
+    ports:
+      - '16379:6379'
+  sprcloudaliorder-redis-2:
+    image: redis:5.0.7
+    command:
+      - 'redis-server'
+      - '--port 6379'
+      - '--cluster-enabled yes'
+      - '--cluster-config-file nodes.conf'
+      - '--cluster-node-timeout 5000'
+      - '--appendonly yes'
+    ports:
+      - '26379:6379'
+  sprcloudaliorder-redis-3:
+    image: redis:5.0.7
+    command:
+      - 'redis-server'
+      - '--port 6379'
+      - '--cluster-enabled yes'
+      - '--cluster-config-file nodes.conf'
+      - '--cluster-node-timeout 5000'
+      - '--appendonly yes'
+    ports:
+      - '36379:6379'
+  sprcloudaliorder-redis-4:
+    image: redis:5.0.7
+    command:
+      - 'redis-server'
+      - '--port 6379'
+      - '--cluster-enabled yes'
+      - '--cluster-config-file nodes.conf'
+      - '--cluster-node-timeout 5000'
+      - '--appendonly yes'
+    ports:
+      - '46379:6379'
+  sprcloudaliorder-redis-5:
+    image: redis:5.0.7
+    command:
+      - 'redis-server'
+      - '--port 6379'
+      - '--cluster-enabled yes'
+      - '--cluster-config-file nodes.conf'
+      - '--cluster-node-timeout 5000'
+      - '--appendonly yes'
+    ports:
+      - '56379:6379'
+  sprcloudaliorder-redis-cluster-builder:
+    build:
+      context: .
+      dockerfile: redis/Redis-Cluster.Dockerfile

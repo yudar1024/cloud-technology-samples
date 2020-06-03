@@ -1,0 +1,108 @@
+# spring cloud access&secret config
+# 可以访问如下地址查看: https://usercenter.console.aliyun.com/#/manage/ak
+#spring.cloud.alicloud.access-key=****
+#spring.cloud.alicloud.secret-key=****
+
+
+#################################### dubbo config : ####################################
+# 微服务治理控制台(Dubbo): https://edas.console.aliyun.com/#/dubboManage/SPServiceSearchConfig
+# dubbo 服务扫描基础包路径
+#dubbo:
+#  protocol:
+#    id: dubbo
+#   Dubbo 服务暴露的协议配置，其中子属性 name 为协议名称，port 为协议端口（ -1 表示自增端口，从 20880 开始）
+#    name: dubbo
+#    port: -1
+#  scan:
+#    base-package: com.mycompany.alicloudap
+# 挂载到 Spring Cloud 注册中心
+#  registry:
+#    address: //localhost
+# 用于服务消费方订阅服务提供方的应用名称的列表，若需订阅多应用，使用 "," 分割。 不推荐使用默认值为 "*"，它将订阅所有应用。
+# 这里默认使用了当前应用名，请根据需要增加对应的应用名
+#  cloud:
+#    subscribed-services: alicloudapp
+
+
+
+
+
+#################################### sentinel config : ####################################
+#management.health.sentinel.enabled=false
+#
+#spring.cloud.sentinel.transport.dashboard=localhost:8080
+#spring.cloud.sentinel.eager=true
+#spring.cloud.sentinel.http-method-specify=false
+
+#spring.cloud.sentinel.datasource.ds1.file.file=classpath: sentinel/flowrule.json
+#spring.cloud.sentinel.datasource.ds1.file.data-type=json
+#spring.cloud.sentinel.datasource.ds1.file.rule-type=flow
+#
+#spring.cloud.sentinel.datasource.ds2.file.file=classpath: sentinel/degraderule.json
+#spring.cloud.sentinel.datasource.ds2.file.data-type=json
+#spring.cloud.sentinel.datasource.ds2.file.rule-type=degrade
+#
+#spring.cloud.sentinel.datasource.ds3.file.file=classpath: sentinel/authority.json
+#spring.cloud.sentinel.datasource.ds3.file.rule-type=authority
+#
+#spring.cloud.sentinel.datasource.ds4.file.file=classpath: sentinel/system.json
+#spring.cloud.sentinel.datasource.ds4.file.rule-type=system
+#
+#spring.cloud.sentinel.datasource.ds5.file.file=classpath: sentinel/param-flow.json
+#spring.cloud.sentinel.datasource.ds5.file.rule-type=param_flow
+
+
+#################################### nacosconfig config : ####################################
+# 微服务引擎控制台: https://mse.console.aliyun.com
+# Nacos帮助文档: https://nacos.io/zh-cn/docs/concepts.html
+
+# nacos认证信息
+#spring.cloud.nacos.config.username=nacos
+#spring.cloud.nacos.config.password=nacos
+#spring.cloud.nacos.config.contextPath=/nacos
+
+# ----------配置中心，如果无需使用配置中心，可以删除此部分配置----------
+# 设置配置中心服务端地址
+#spring.cloud.nacos.config.server-addr=127.0.0.1:8848
+
+
+#################################### nacosdiscovery config : ####################################
+# 微服务引擎控制台: https://mse.console.aliyun.com
+# Nacos帮助文档: https://nacos.io/zh-cn/docs/concepts.html
+
+## Nacos认证信息
+#spring.cloud.nacos.discovery.username = nacos
+#spring.cloud.nacos.discovery.password = nacos
+#
+## Nacos 服务发现与注册配置，其中子属性 server-addr 指定 Nacos 服务器主机和端口
+#spring.cloud.nacos.discovery.server-addr=localhost:8848
+
+
+#################################### seata config : ####################################
+# Nacos 服务发现与注册配置，其中子属性 server-addr 指定 Nacos 服务器主机和端口
+#spring.cloud.nacos.discovery.server-addr= 127.0.0.1:8848
+
+#spring.datasource.name="storageDataSource"
+#spring.datasource.type=com.alibaba.druid.pool.DruidDataSource
+#spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+#spring.datasource.url=jdbc:mysql://xxx:3306/fescar?useSSL=false&serverTimezone=UTC
+#spring.datasource.username=xxx
+#spring.datasource.password=xxx
+#spring.datasource.druid.max-active=20
+#spring.datasource.druid.min-idle=2
+#spring.datasource.druid.initial-size=2
+
+#seata.enabled=true
+#seata.service.vgroup-mapping=default
+#seata.service.grouplist=127.0.0.1:8091
+#seata.service.disable-global-transaction=false
+#
+## if use registry center
+#seata.registry.type=nacos
+#seata.registry.nacos.cluster=default
+#seata.registry.nacos.server-addr=localhost
+#
+## if use config center
+#seata.config.type=apollo
+#seata.config.apollo.apollo-meta=http://192.168.1.204:8801
+#seata.config.apollo.app-id=seata-server
