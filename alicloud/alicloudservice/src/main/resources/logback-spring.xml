@@ -87,6 +87,6 @@
     </contextListener>
     <root level="${logging.level.root}">
         <appender-ref ref="Console"/>
-        <appender-ref ref="Sentry"/>
+<!--        <appender-ref ref="Sentry"/>-->
     </root>
 </configuration>

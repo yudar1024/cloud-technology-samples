@@ -84,6 +84,7 @@
         <spring-cloud-alibaba.version>2.2.1.RELEASE</spring-cloud-alibaba.version>
         <mybatis-plus.version>3.3.1</mybatis-plus.version>
         <lombok.version>1.18.12</lombok.version>
+        <shardingsphere.version>4.1.0</shardingsphere.version>
     </properties>
 
     <dependencyManagement>
@@ -316,7 +317,18 @@
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-seata</artifactId>
+<!--            <exclusions>-->
+<!--                <exclusion>-->
+<!--                    <groupId>io.seata</groupId>-->
+<!--                    <artifactId>seata-spring-boot-starter</artifactId>-->
+<!--                </exclusion>-->
+<!--            </exclusions>-->
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>io.seata</groupId>-->
+<!--            <artifactId>seata-spring-boot-starter</artifactId>-->
+<!--            <version>1.2.0</version>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
@@ -359,6 +371,22 @@
             <artifactId>sentry-logback</artifactId>
             <version>1.7.30</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.shardingsphere</groupId>
+            <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
+            <version>${shardingsphere.version}</version>
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.apache.shardingsphere</groupId>-->
+<!--            <artifactId>sharding-transaction-base-seata-at</artifactId>-->
+<!--            <version>${shardingsphere.version}</version>-->
+<!--        </dependency>-->
+        <dependency>
+            <groupId>org.apache.shardingsphere</groupId>
+            <artifactId>sharding-jdbc-core</artifactId>
+            <version>${shardingsphere.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>

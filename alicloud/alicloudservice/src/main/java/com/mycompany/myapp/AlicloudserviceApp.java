@@ -25,7 +25,6 @@ import java.util.Collection;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableConfigurationProperties({LiquibaseProperties.class, ApplicationProperties.class})
-@MapperScan("com.mycompany.myapp.mapper")
 public class AlicloudserviceApp {
 
     private static final Logger log = LoggerFactory.getLogger(AlicloudserviceApp.class);

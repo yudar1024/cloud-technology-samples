@@ -27,7 +27,8 @@ management:
     web:
       base-path: /management
       exposure:
-        include: ['configprops', 'env', 'health', 'info', 'jhimetrics', 'logfile', 'loggers', 'prometheus', 'threaddump']
+        #        include: ['configprops', 'env', 'health', 'info', 'jhimetrics', 'logfile', 'loggers', 'prometheus', 'threaddump']
+        include: ['*']
   endpoint:
     health:
       show-details: always
@@ -157,9 +158,13 @@ application:
     maxExpiration: 3600
 
 mybatis-plus:
-  #  global-config:
-  #    db-config:
-  #      id-type: auto
+  global-config:
+    db-config:
+      id-type: assign_id
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-  mapper-locations: 'classpath*:/com/mycompany/myapp/mapper/**/*.xml'
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+  mapper-locations: 'classpath*:/mapper/*.xml'
+  configuration-properties:
+    dbType: mysql #设置全局属性用于控制数据库的类型

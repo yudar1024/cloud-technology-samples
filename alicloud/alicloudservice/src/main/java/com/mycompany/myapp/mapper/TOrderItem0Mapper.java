@@ -1,6 +1,6 @@
 package com.mycompany.myapp.mapper;
 
-import com.mycompany.myapp.domain.OrderTbl;
+import com.mycompany.myapp.domain.TOrderItem0;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -9,8 +9,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author roger
- * @since 2020-05-13
+ * @since 2020-06-03
  */
-public interface OrderTblMapper extends BaseMapper<OrderTbl> {
+public interface TOrderItem0Mapper extends BaseMapper<TOrderItem0> {
 
 }

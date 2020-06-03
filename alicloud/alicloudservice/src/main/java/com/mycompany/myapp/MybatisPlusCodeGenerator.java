@@ -2,10 +2,18 @@ package com.mycompany.myapp;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
+import com.baomidou.mybatisplus.generator.InjectionConfig;
 import com.baomidou.mybatisplus.generator.config.*;
+import com.baomidou.mybatisplus.generator.config.builder.ConfigBuilder;
+import com.baomidou.mybatisplus.generator.config.rules.FileType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 
 public class MybatisPlusCodeGenerator {
+    public static final boolean CREATE_MAPPER=true;
+    public static final boolean CREATE_SERVICE=true;
+    public static final boolean CREATE_CONTROLER=true;
+    public static final boolean CREATE_ENTITY=true;
+
     public static void main(String[] args) {
         AutoGenerator mpg = new AutoGenerator();
 
@@ -21,8 +29,8 @@ public class MybatisPlusCodeGenerator {
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
         dsc.setDbType(DbType.MYSQL);
-        dsc.setUrl("jdbc:mysql://localhost:3306/devtest?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=UTC&allowPublicKeyRetrieval=true");
-        dsc.setSchemaName("devtest");
+        dsc.setUrl("jdbc:mysql://localhost:3306/seata_order?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=UTC&allowPublicKeyRetrieval=true");
+        dsc.setSchemaName("seata_order");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
         dsc.setPassword("openstack");
@@ -43,19 +51,55 @@ public class MybatisPlusCodeGenerator {
         StrategyConfig strategy = new StrategyConfig();
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
-        strategy.setEntityLombokModel(true);
+        strategy.setEntityLombokModel(false);
         strategy.setRestControllerStyle(true);
 
         // 公共父类
 //        strategy.setSuperControllerClass("你自己的父类控制器,没有就不用设置!");
         // 写于父类中的公共字段
         strategy.setSuperEntityColumns("id");
-        strategy.setInclude("order_tbl");
+        strategy.setInclude("t_order_0","t_order_1","t_order_item_0","t_order_item_1","undo_log");
         strategy.setControllerMappingHyphenStyle(true);
         strategy.setTablePrefix(pc.getModuleName() + "_");
-        strategy.setEntityLombokModel(false);
         strategy.setEntityTableFieldAnnotationEnable(true);
         mpg.setStrategy(strategy);
+
+        InjectionConfig injectionConfig = new InjectionConfig() {
+            @Override
+            public void initMap() {
+
+            }
+        };
+
+        injectionConfig.setFileCreate(new IFileCreate() {
+            @Override
+            public boolean isCreate(ConfigBuilder configBuilder, FileType fileType, String filePath) {
+                if(fileType==FileType.ENTITY && CREATE_ENTITY){
+                    return true;
+                }
+                if(fileType==FileType.MAPPER && CREATE_MAPPER){
+                    return true;
+                }
+                if(fileType==FileType.XML && CREATE_MAPPER){
+                    return true;
+                }
+                if(fileType==FileType.SERVICE && CREATE_SERVICE){
+                    return true;
+                }
+                if(fileType==FileType.SERVICE_IMPL && CREATE_SERVICE){
+                    return true;
+                }
+                if(fileType==FileType.CONTROLLER && CREATE_CONTROLER){
+                    return true;
+                }
+                if(fileType==FileType.OTHER){
+                    return true;
+                }
+
+                return false;
+            }
+        });
+        mpg.setCfg(injectionConfig);
         mpg.execute();
 
     }

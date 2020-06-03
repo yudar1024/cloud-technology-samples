@@ -1,6 +1,6 @@
 package com.mycompany.myapp.service;
 
-import com.mycompany.myapp.domain.OrderTbl;
+import com.mycompany.myapp.domain.TOrderItem1;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -9,8 +9,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * </p>
  *
  * @author roger
- * @since 2020-05-13
+ * @since 2020-06-03
  */
-public interface IOrderTblService extends IService<OrderTbl> {
+public interface ITOrderItem1Service extends IService<TOrderItem1> {
 
 }
