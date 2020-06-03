@@ -11,7 +11,7 @@ import reactor.core.publisher.Mono;
 
 import java.util.List;
 
-@Component
+//@Component
 public class RedisRouteDefinitionRepository implements RouteDefinitionRepository {
 
     //存储的的key
