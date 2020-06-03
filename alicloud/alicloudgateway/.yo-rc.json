@@ -32,7 +32,9 @@
     "enableTranslation": true,
     "clientPackageManager": "npm",
     "nativeLanguage": "zh-cn",
-    "languages": ["zh-cn"],
+    "languages": [
+      "zh-cn"
+    ],
     "blueprints": [],
     "reactive": true,
     "skipClient": true

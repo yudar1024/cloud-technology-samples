@@ -18,7 +18,6 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
 import org.springframework.security.config.web.server.SecurityWebFiltersOrder;
 import org.springframework.security.config.web.server.ServerHttpSecurity;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.oauth2.client.oidc.userinfo.OidcReactiveOAuth2UserService;
 import org.springframework.security.oauth2.client.oidc.userinfo.OidcUserRequest;
@@ -29,13 +28,9 @@ import org.springframework.security.oauth2.core.oidc.user.DefaultOidcUser;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.security.oauth2.core.oidc.user.OidcUserAuthority;
 import org.springframework.security.oauth2.jwt.*;
-import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
 import org.springframework.security.oauth2.server.resource.authentication.ReactiveJwtAuthenticationConverterAdapter;
 import org.springframework.security.web.server.csrf.CookieServerCsrfTokenRepository;
 import org.springframework.security.web.server.header.ReferrerPolicyServerHttpHeadersWriter;
-import org.springframework.security.web.server.WebFilterExchange;
-import org.springframework.security.web.server.authentication.RedirectServerAuthenticationSuccessHandler;
-import org.springframework.security.web.server.authentication.ServerAuthenticationSuccessHandler;
 import org.springframework.security.web.server.SecurityWebFilterChain;
 import org.springframework.security.web.server.header.ReferrerPolicyServerHttpHeadersWriter;
 import org.springframework.security.web.server.util.matcher.NegatedServerWebExchangeMatcher;
@@ -53,9 +48,6 @@ import static org.springframework.security.web.server.util.matcher.ServerWebExch
 @Import(SecurityProblemSupport.class)
 public class SecurityConfiguration {
 
-//    private final AuditEventService auditEventService;
-
-
     @Value("${spring.security.oauth2.client.provider.oidc.issuer-uri}")
     private String issuerUri;
 
@@ -63,9 +55,7 @@ public class SecurityConfiguration {
 
     private final SecurityProblemSupport problemSupport;
 
-//    public SecurityConfiguration(AuditEventService auditEventService, JHipsterProperties jHipsterProperties, SecurityProblemSupport problemSupport) {
     public SecurityConfiguration(JHipsterProperties jHipsterProperties, SecurityProblemSupport problemSupport) {
-//        this.auditEventService = auditEventService;
         this.jHipsterProperties = jHipsterProperties;
         this.problemSupport = problemSupport;
     }
@@ -99,13 +89,11 @@ public class SecurityConfiguration {
             .authorizeExchange()
             .pathMatchers("/api/auth-info").permitAll()
             .pathMatchers("/api/**").authenticated()
-            .pathMatchers("/services/**", "/swagger-resources/**", "/v2/api-docs","/swagger-ui.html","/webjars/**").authenticated()
+            .pathMatchers("/services/**", "/swagger-resources/**", "/v2/api-docs").authenticated()
             .pathMatchers("/management/health").permitAll()
             .pathMatchers("/management/info").permitAll()
             .pathMatchers("/management/prometheus").permitAll()
-//            .pathMatchers("/management/**").hasAuthority(AuthoritiesConstants.ADMIN);
-            .pathMatchers("/management/**").permitAll()
-            .pathMatchers("/").permitAll();
+            .pathMatchers("/management/**").hasAuthority(AuthoritiesConstants.ADMIN);
 
         http.oauth2Login()
             .and()
