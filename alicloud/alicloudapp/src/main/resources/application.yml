@@ -1,0 +1,164 @@
+#################################### common config : ####################################
+spring:
+  autoconfigure:
+    #    自定义配置DataSource 和 ProxyDataSource时，需要排除spring 原生的自动化装配类DataSourceAutoConfiguration，DruidDataSourceAutoConfigure
+    exclude: [com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure]
+  application:
+    name: alicloudapp
+  datasource:
+    url: 'jdbc:mysql://localhost:3306/seata_storage?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true'
+    name: storageDataSource
+    type: com.alibaba.druid.pool.DruidDataSource
+#   mysql8
+    driver-class-name: 'com.mysql.cj.jdbc.Driver'
+#   mysql 5.7
+#    driver-class-name: 'com.mysql.jdbc.Driver'
+    username: root
+    password: openstack
+#    druid:
+#      initial-size: 2
+#      max-active: 20
+#      min-idle: 2
+#      url: 'jdbc:mysql://localhost:3306/seata_storage?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true'
+#      username: root
+#      password: openstack
+#      driver-class-name: 'com.mysql.cj.jdbc.Driver'
+#      name: storageDataSource
+
+  cloud:
+    nacos:
+      discovery:
+        # Nacos 服务发现与注册配置，其中子属性 server-addr 指定 Nacos 服务器主机和端口
+        server-addr: localhost:8848
+        username: nacos
+        password: nacos
+      config:
+        server-addr: localhost:8848
+        username: nacos
+        password: nacos
+        context-path: /nacos
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+      enabled: true
+      datasource:
+        flowrule:
+          nacos:
+            server-addr: localhost:8848
+            data-id: alicloudapp-flowrule
+            data-type: json
+            rule-type: flow  # flow,system,degrade,param-flow,authority 5种
+      http-method-specify: false
+
+  liquibase:
+    enabled: false
+    change-log: 'classpath:/config/liquibase/master.xml'
+
+#      eager: true
+#      datasource:
+#        ds1:
+#          file:
+#            file: 'classpath: sentinel/flowrule.json'
+#            data: json
+#            rule: flow
+#        ds2:
+#          file:
+#            file: 'classpath: sentinel/degraderule.json'
+#            data: json
+#            rule: degrade
+#        ds3:
+#          file:
+#            file: 'classpath: sentinel/authority.json'
+#            rule: authority
+#        ds4:
+#          file:
+#            file: 'classpath: sentinel/system.json'
+#            rule: system
+#        ds5:
+#          file:
+#            file: 'classpath: sentinel/param-flow.json'
+#            rule: param-flow
+#      http-method-specify: false
+# 应用服务web访问端口
+server:
+  port: 8081
+
+#整合feign与sentinel
+feign:
+  sentinel:
+    enabled: true
+  hystrix:
+    enabled: false
+
+management:
+  health:
+    sentinel:
+      enabled: false
+  # ActuatorWeb访问端口
+  server:
+    port: 8081
+  endpoints:
+    web:
+      exposure:
+        include: ['*']
+      base-path: '/management'
+  endpoint:
+    health:
+      show-details: always
+  info:
+    git:
+      mode: full
+  metrics:
+    export:
+      # Prometheus is the default metrics backend
+      prometheus:
+        enabled: true
+        step: 60
+    enable:
+      http: true
+      jvm: true
+      logback: true
+      process: true
+      system: true
+    distribution:
+      percentiles-histogram:
+        all: true
+      percentiles:
+        all: 0, 0.5, 0.75, 0.95, 0.99, 1.0
+    tags:
+      application: ${spring.application.name}
+    web:
+      server:
+        request:
+          autotime:
+            enabled: true
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: 'classpath*:com/mycompany/alicloudapp/mapper/**/*.xml'
+#################################### seata config : ####################################
+#seata 使用有几个点
+#1 自定义配置数据源参见SeataConfiguration，同时排除DataSourceAutoConfiguration
+#2 配置微服务的seata 注册名称，通过spring.cloud.alibaba.seata.tx-service-group=<service-group-name> 来配置，此配置需要和nacos 中的配置对应。
+#3 在nacos中，需要配置对应的配置性，已本工程为例，需要配置Data_ID=serivce.vgroup_mapp.<service-group-name>, GROUP=SEATA_GROUP 配置格式为text，配置内容为default的配置项，参见nacos-seata-configuration.png
+#4 配置registry.conf 中的type 使用nacos 作为服务发现与配置中心
+#5 seata server 需要修改 conf 目录下的registry.conf 配置使用nacos 作为服务发现与配置中心，注意config段的配置项中，需要把nacos的group项添加上，并指定为SEATA_GROUP
+#6 在使用spring-cloud-starter-alibaba-seata 的情况下，client端与server端需要保持版本一致。
+#7 在 seata 在 0.9 开始会自动代理（auto datasource proxy）datasource，需要选择自定义装配ProxyDataSource或者自动代理装配
+#seata:
+#  registry:
+#    nacos:
+#      server-addr: localhost
+#  config:
+#    type: "nacos"
+#  enableAutoDataSourceProxy: false
+#  service:
+#    disableGlobalTransaction: true
+#  enabled: true
+#  enable-auto-data-source-proxy:
+
+logging:
+  level:
+    io:
+      seata: debug
