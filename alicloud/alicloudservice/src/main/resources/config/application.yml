@@ -31,7 +31,7 @@ management:
   endpoint:
     health:
       show-details: always
-#      roles: 'ROLE_ADMIN'
+    #      roles: 'ROLE_ADMIN'
     jhimetrics:
       enabled: true
   info:
@@ -83,9 +83,6 @@ spring:
     basename: i18n/messages
   main:
     allow-bean-definition-overriding: true
-  mvc:
-    favicon:
-      enabled: false
   task:
     execution:
       thread-name-prefix: alicloudservice-task-
@@ -121,7 +118,6 @@ server:
 info:
   # Comma separated list of profiles that will trigger the ribbon to show
   display-ribbon-on-profiles: 'dev'
-
 
 # ===================================================================
 
@@ -161,9 +157,9 @@ application:
     maxExpiration: 3600
 
 mybatis-plus:
-#  global-config:
-#    db-config:
-#      id-type: auto
+  #  global-config:
+  #    db-config:
+  #      id-type: auto
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   mapper-locations: 'classpath*:/com/mycompany/myapp/mapper/**/*.xml'
