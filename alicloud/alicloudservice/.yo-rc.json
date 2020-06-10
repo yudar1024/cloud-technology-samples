@@ -1,0 +1,43 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.mycompany.myapp"
+    },
+    "jhipsterVersion": "6.9.0",
+    "applicationType": "microservice",
+    "baseName": "alicloudservice",
+    "packageName": "com.mycompany.myapp",
+    "packageFolder": "com/mycompany/myapp",
+    "serverPort": "8081",
+    "authenticationType": "oauth2",
+    "cacheProvider": "redis",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Memory",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "YWUwNTViYjkxYWMyYWNiYTAxNGQxNTE0MGFjOGZiNDBhODE4NmIxZGI0ODBiZTA0YmEzZDRkODE0MzE1MmE3YTdlOWVmMDcyODYxZjMxN2FmMzUyYTAxZWE1MDhiYjAwYTU2ZjRmNjk0MDk5ZTZjMDY3ZmVmN2M5YjE4YmZlMWE=",
+    "embeddableLaunchScript": false,
+    "creationTimestamp": 1589075143440,
+    "testFrameworks": [],
+    "jhiPrefix": "my",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false,
+    "clientPackageManager": "npm",
+    "blueprints": [],
+    "skipClient": true,
+    "skipUserManagement": true,
+    "appsFolders": ["alicloudservice"],
+    "directoryPath": "../",
+    "gatewayType": "zuul",
+    "monitoring": "no",
+    "consoleOptions": []
+  }
+}

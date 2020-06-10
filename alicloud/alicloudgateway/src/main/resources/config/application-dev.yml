@@ -1,0 +1,149 @@
+# ===================================================================
+# Spring Boot configuration for the "dev" profile.
+#
+# This configuration overrides the application.yml file.
+#
+# More information on profiles: https://www.jhipster.tech/profiles/
+# More information on configuration properties: https://www.jhipster.tech/common-application-properties/
+# ===================================================================
+
+# ===================================================================
+# Standard Spring Boot properties.
+# Full reference is available at:
+# http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+# ===================================================================
+
+logging:
+  level:
+    ROOT: DEBUG
+    io.github.jhipster: DEBUG
+    com.mycompany.myapp: DEBUG
+    com.alibaba.nacos.client.naming: INFO
+
+spring:
+  redisson:
+    address: 'localhost:6379'
+    clientName: redis
+    #指定编解码
+    codec: org.redisson.codec.JsonJacksonCodec
+    #连接等待超时,单位：毫秒,默认10000
+    connectTimeout: 10000
+    #最小空闲连接数,默认值:10,最小保持连接数（长连接）
+    connectionMinimumIdleSize: 12
+    #连接池最大容量。默认值：64；连接池的连接数量自动弹性伸缩
+    connectionPoolSize: 64
+    database: 0
+    #执行失败最大次数, 默认值：3；失败后直到 reconnectionTimeout超时以后再次尝试。
+    failedAttempts: 2
+    #连接空闲超时，单位：毫秒 默认10000;当前连接池里的连接数量超过了最小空闲连接数，
+    #而连接空闲时间超过了该数值，这些连接将会自动被关闭，并从连接池里去掉
+    idleConnectionTimeout: 10000
+    password: admin
+    pingTimeout: 1000
+    reconnectionTimeout: 3000
+    #命令失败重试次数，默认值:3
+    retryAttempts: 2
+    retryInterval: 1500
+    #发布和订阅连接的最小空闲连接数，默认值：1；Redisson内部经常通过发布和订阅来实现许多功能。
+    #长期保持一定数量的发布订阅连接是必须的
+    subscriptionConnectionMinimumIdleSize: 1
+    #发布和订阅连接池大小，默认值：50
+    subscriptionConnectionPoolSize: 50
+    #单个连接最大订阅数量，默认值：5
+    subscriptionsPerConnection: 5
+    #当前处理核数量 * 2
+    thread: 4
+    #命令等待超时,单位：毫秒,默认3000；等待节点回复命令的时间。该时间从命令发送成功时开始计时
+    timeout: 3000
+  profiles:
+    active: dev
+    include:
+      - swagger
+      # Uncomment to activate TLS for the dev profile
+      #- tls
+  devtools:
+    restart:
+      enabled: true
+      additional-exclude: static/**
+    livereload:
+      enabled: false # we use Webpack dev server + BrowserSync for livereload
+  jackson:
+    serialization:
+      indent-output: true
+  mail:
+    host: localhost
+    port: 25
+    username:
+    password:
+  messages:
+    cache-duration: PT1S # 1 second, see the ISO 8601 standard
+  sleuth:
+    sampler:
+      probability: 1 # report 100% of traces
+  zipkin: # Use the "zipkin" Maven profile to have the Spring Cloud Zipkin dependencies
+    base-url: http://localhost:9411
+    enabled: false
+    locator:
+      discovery:
+        enabled: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        username: nacos
+        password: nacos
+      config:
+        context-path: /nacos
+        server-addr: localhost:8848
+        username: nacos
+        password: nacos
+    sentinel:
+      enabled: true
+      transport:
+        dashboard: localhost:9090
+server:
+  port: 8080
+
+# ===================================================================
+# JHipster specific properties
+#
+# Full reference is available at: https://www.jhipster.tech/common-application-properties/
+# ===================================================================
+
+jhipster:
+  gateway:
+    rate-limiting:
+      enabled: false
+      limit: 100000
+      duration-in-seconds: 3600
+  # CORS is only enabled by default with the "dev" profile, so BrowserSync can access the API
+  cors:
+    allowed-origins: '*'
+    allowed-methods: '*'
+    allowed-headers: '*'
+    exposed-headers: 'Authorization,Link,X-Total-Count'
+    allow-credentials: true
+    max-age: 1800
+  mail: # specific JHipster mail property, for standard properties see MailProperties
+    base-url: http://127.0.0.1:8080
+  metrics:
+    logs: # Reports metrics in the logs
+      enabled: false
+      report-frequency: 60 # in seconds
+  logging:
+    use-json-format: false # By default, logs are not in Json format
+    logstash: # Forward logs to logstash over a socket, used by LoggingConfiguration
+      enabled: false
+      host: localhost
+      port: 5000
+      queue-size: 512
+# ===================================================================
+# Application specific properties
+# Add your own application properties here, see the ApplicationProperties class
+# to have type-safe configuration, like in the JHipsterProperties above
+#
+# More documentation is available at:
+# https://www.jhipster.tech/common-application-properties/
+# ===================================================================
+
+# application:
