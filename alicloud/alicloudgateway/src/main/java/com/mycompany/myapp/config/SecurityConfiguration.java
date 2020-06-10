@@ -4,12 +4,12 @@ import com.mycompany.myapp.security.AuthoritiesConstants;
 import com.mycompany.myapp.security.SecurityUtils;
 import com.mycompany.myapp.security.oauth2.AudienceValidator;
 import com.mycompany.myapp.security.oauth2.JwtGrantedAuthorityConverter;
-//import com.mycompany.myapp.service.AuditEventService;
 import org.springframework.security.authentication.AbstractAuthenticationToken;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
 import io.github.jhipster.web.filter.reactive.CookieCsrfFilter;
 import org.springframework.beans.factory.annotation.Value;
 import io.github.jhipster.config.JHipsterProperties;
+import com.mycompany.myapp.web.filter.SpaWebFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 import org.springframework.core.convert.converter.Converter;
@@ -73,6 +73,7 @@ public class SecurityConfiguration {
         .and()
             // See https://github.com/spring-projects/spring-security/issues/5766
             .addFilterAt(new CookieCsrfFilter(), SecurityWebFiltersOrder.REACTOR_CONTEXT)
+            .addFilterAt(new SpaWebFilter(), SecurityWebFiltersOrder.AUTHENTICATION)
             .exceptionHandling()
                 .accessDeniedHandler(problemSupport)
                 .authenticationEntryPoint(problemSupport)
@@ -87,6 +88,8 @@ public class SecurityConfiguration {
                 .frameOptions().disable()
         .and()
             .authorizeExchange()
+            .pathMatchers("/").permitAll()
+            .pathMatchers("/*.*").permitAll()
             .pathMatchers("/api/auth-info").permitAll()
             .pathMatchers("/api/**").authenticated()
             .pathMatchers("/services/**", "/swagger-resources/**", "/v2/api-docs").authenticated()

@@ -4,7 +4,7 @@
       "packageName": "com.mycompany.myapp",
       "nativeLanguage": "zh-cn"
     },
-    "jhipsterVersion": "6.8.0",
+    "jhipsterVersion": "6.9.1",
     "applicationType": "gateway",
     "baseName": "alicloudgateway",
     "packageName": "com.mycompany.myapp",
@@ -23,20 +23,21 @@
     "buildTool": "maven",
     "enableSwaggerCodegen": false,
     "embeddableLaunchScript": false,
-    "creationTimestamp": 1589254829750,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "materia",
+    "clientThemeVariant": "primary",
+    "creationTimestamp": 1591775897292,
     "testFrameworks": [],
-    "jhiPrefix": "my",
+    "jhiPrefix": "jhi",
     "entitySuffix": "",
     "dtoSuffix": "DTO",
     "otherModules": [],
     "enableTranslation": true,
-    "clientPackageManager": "npm",
     "nativeLanguage": "zh-cn",
-    "languages": [
-      "zh-cn"
-    ],
+    "languages": ["zh-cn", "en"],
     "blueprints": [],
-    "reactive": true,
-    "skipClient": true
+    "reactive": true
   }
 }
