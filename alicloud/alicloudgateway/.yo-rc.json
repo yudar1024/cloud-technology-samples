@@ -26,9 +26,9 @@
     "useSass": true,
     "clientPackageManager": "npm",
     "clientFramework": "angularX",
-    "clientTheme": "materia",
-    "clientThemeVariant": "primary",
-    "creationTimestamp": 1591775897292,
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "creationTimestamp": 1591790335705,
     "testFrameworks": [],
     "jhiPrefix": "jhi",
     "entitySuffix": "",
@@ -36,7 +36,7 @@
     "otherModules": [],
     "enableTranslation": true,
     "nativeLanguage": "zh-cn",
-    "languages": ["zh-cn", "en"],
+    "languages": ["zh-cn"],
     "blueprints": [],
     "reactive": true
   }
