@@ -30,3 +30,4 @@ target/
 .settings
 .vscode
 *.iml
+/alicloudapp/src/main/resources/rebel.xml
