@@ -4,6 +4,7 @@ import com.mycompany.myapp.security.AuthoritiesConstants;
 import com.mycompany.myapp.security.SecurityUtils;
 import com.mycompany.myapp.security.oauth2.AudienceValidator;
 import com.mycompany.myapp.security.oauth2.JwtGrantedAuthorityConverter;
+import org.springframework.context.annotation.Profile;
 import org.springframework.security.authentication.AbstractAuthenticationToken;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
 import io.github.jhipster.web.filter.reactive.CookieCsrfFilter;
@@ -46,6 +47,7 @@ import static org.springframework.security.web.server.util.matcher.ServerWebExch
 @EnableWebFluxSecurity
 @EnableReactiveMethodSecurity
 @Import(SecurityProblemSupport.class)
+@Profile("oidc")
 public class SecurityConfiguration {
 
     @Value("${spring.security.oauth2.client.provider.oidc.issuer-uri}")
