@@ -1,4 +1,4 @@
-package com.mycompany.myapp.config;
+package com.mycompany.myapp.config.oidc;
 
 import com.mycompany.myapp.security.AuthoritiesConstants;
 import com.mycompany.myapp.security.SecurityUtils;
