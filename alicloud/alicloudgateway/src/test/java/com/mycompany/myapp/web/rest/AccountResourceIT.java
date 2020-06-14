@@ -2,8 +2,8 @@ package com.mycompany.myapp.web.rest;
 
 import com.mycompany.myapp.AlicloudgatewayApp;
 import com.mycompany.myapp.config.TestSecurityConfiguration;
+import com.mycompany.myapp.config.oidc.AccountResource;
 import com.mycompany.myapp.security.AuthoritiesConstants;
-import com.mycompany.myapp.service.UserService;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -22,7 +22,6 @@ import java.util.Map;
 import static com.mycompany.myapp.web.rest.AccountResourceIT.TEST_USER_LOGIN;
 import org.springframework.security.test.context.support.WithMockUser;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static com.mycompany.myapp.web.rest.TestUtil.ID_TOKEN;
 import static org.springframework.security.test.web.reactive.server.SecurityMockServerConfigurers.*;
 

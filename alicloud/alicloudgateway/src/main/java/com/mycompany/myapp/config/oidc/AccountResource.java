@@ -1,7 +1,5 @@
-package com.mycompany.myapp.web.rest;
+package com.mycompany.myapp.config.oidc;
 
-import com.mycompany.myapp.security.SecurityUtils;
-import com.mycompany.myapp.service.UserService;
 import com.mycompany.myapp.service.dto.UserDTO;
 
 import org.slf4j.Logger;

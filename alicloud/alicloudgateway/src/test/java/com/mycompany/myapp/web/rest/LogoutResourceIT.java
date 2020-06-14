@@ -2,13 +2,13 @@ package com.mycompany.myapp.web.rest;
 
 import com.mycompany.myapp.AlicloudgatewayApp;
 import com.mycompany.myapp.config.TestSecurityConfiguration;
+import com.mycompany.myapp.config.oidc.LogoutResource;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.http.MediaType;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.client.registration.ReactiveClientRegistrationRepository;
 import org.springframework.security.oauth2.core.oidc.OidcIdToken;
 import org.springframework.test.web.reactive.server.WebTestClient;
@@ -19,7 +19,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static com.mycompany.myapp.web.rest.TestUtil.ID_TOKEN;
-import static com.mycompany.myapp.web.rest.TestUtil.authenticationToken;
 import static org.springframework.security.test.web.reactive.server.SecurityMockServerConfigurers.*;
 
 /**

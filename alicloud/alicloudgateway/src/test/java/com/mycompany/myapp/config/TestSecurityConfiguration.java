@@ -23,6 +23,7 @@ import static org.mockito.Mockito.mock;
  * This class allows you to run unit and integration tests without an IdP.
  */
 @TestConfiguration
+
 public class TestSecurityConfiguration {
     private final ClientRegistration clientRegistration;
 

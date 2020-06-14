@@ -23,8 +23,8 @@
         </repository>
         <!-- jhipster-needle-maven-repository -->
         <repository>
-            <id>spring</id>
-            <url>https://maven.aliyun.com/repository/spring</url>
+            <id>ali</id>
+            <url>https://maven.aliyun.com/repository/public</url>
             <releases>
                 <enabled>true</enabled>
             </releases>
@@ -120,6 +120,8 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+
 
     <dependencies>
         <dependency>
@@ -263,15 +265,7 @@
             <groupId>org.zalando</groupId>
             <artifactId>problem-spring-webflux</artifactId>
         </dependency>
-        <!-- Spring Security OAuth 2.0 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-oauth2-client</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
-        </dependency>
+
         <!-- Spring Cloud -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -289,10 +283,10 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter</artifactId>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.cloud</groupId>-->
-<!--            <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-loadbalancer</artifactId>
@@ -1105,5 +1099,19 @@
             </build>
         </profile>
         <!-- jhipster-needle-maven-add-profile -->
+        <!-- Spring Security OAuth 2.0 -->
+        <profile>
+            <id>oidc</id>
+            <dependencies>
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-oauth2-client</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
+                </dependency>
+            </dependencies>
+        </profile>
     </profiles>
 </project>

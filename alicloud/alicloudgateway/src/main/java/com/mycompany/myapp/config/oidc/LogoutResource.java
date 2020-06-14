@@ -1,4 +1,4 @@
-package com.mycompany.myapp.web.rest;
+package com.mycompany.myapp.config.oidc;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;

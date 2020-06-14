@@ -1,4 +1,4 @@
-package com.mycompany.myapp.service;
+package com.mycompany.myapp.config.oidc;
 
 import com.mycompany.myapp.config.Constants;
 import com.mycompany.myapp.service.dto.UserDTO;
