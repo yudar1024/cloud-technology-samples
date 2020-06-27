@@ -1,0 +1,98 @@
+version: "3.8"
+
+services:
+  kafka1:
+    image: wurstmeister/kafka:2.12-2.5.0
+    restart: always
+    hostname: kafka1
+    # https://titangene.github.io/article/networking-in-docker-compose.html
+    network_mode: host
+    ports:
+      - 9092:9092
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    extra_hosts:
+      - "zoo1:192.168.166.128"
+      - "zoo2:192.168.166.129"
+      - "zoo3:192.168.166.130"
+    environment:
+    # 设置BORKERID
+      KAFKA_BROKER_ID: 1
+    # 设置 zookeeper 地址 
+      KAFKA_ZOOKEEPER_CONNECT: "zoo1:2181 zoo2:2181,zoo3:2181"
+    # 设置 ADVERTISED_LISTENERS 等价于 advertised.listeners = OUTSIDE://ec2-xx-xx-xxx-xx.us-west-2.compute.amazonaws.com:9094,INSIDE://:9092
+      # KAFKA_ADVERTISED_LISTENERS: INSIDE://:9092,OUTSIDE://ec2-xx-xx-xxx-xx.us-west-2.compute.amazonaws.com:9094:9094
+    # 设置 LISTENERS  等价于 listeners = OUTSIDE://:9094,INSIDE://:9092
+      # KAFKA_LISTENERS: INSIDE://:9092,OUTSIDE://:9094
+      KAFKA_LISTENERS: PLAINTEXT://192.168.166.128:9092
+      # KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
+    #       inter.broker.listener.name = INSIDE
+    #  KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE    
+      # 设置优雅停机 controlled.shutdown.enable=true
+      KAFKA_CONTROLED_SHUTDOWN_ENABLE: true
+---
+version: "3.8"
+
+services:
+  kafka2:
+    image: wurstmeister/kafka:2.12-2.5.0
+    restart: always
+    hostname: kafka2
+    # https://titangene.github.io/article/networking-in-docker-compose.html
+    network_mode: host
+    ports:
+      - 9092:9092
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    extra_hosts:
+      - "zoo1:192.168.166.128"
+      - "zoo2:192.168.166.129"
+      - "zoo3:192.168.166.130"
+    environment:
+    # 设置BORKERID
+      KAFKA_BROKER_ID: 2
+    # 设置 zookeeper 地址 
+      KAFKA_ZOOKEEPER_CONNECT: "zoo1:2181 zoo2:2181,zoo3:2181"
+    # 设置 ADVERTISED_LISTENERS 等价于 advertised.listeners = OUTSIDE://ec2-xx-xx-xxx-xx.us-west-2.compute.amazonaws.com:9094,INSIDE://:9092
+      # KAFKA_ADVERTISED_LISTENERS: INSIDE://:9092,OUTSIDE://ec2-xx-xx-xxx-xx.us-west-2.compute.amazonaws.com:9094:9094
+    # 设置 LISTENERS  等价于 listeners = OUTSIDE://:9094,INSIDE://:9092
+      # KAFKA_LISTENERS: INSIDE://:9092,OUTSIDE://:9094
+      KAFKA_LISTENERS: PLAINTEXT://192.168.166.129:9092
+      # KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
+    #       inter.broker.listener.name = INSIDE
+    #  KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE  
+      # 设置优雅停机 controlled.shutdown.enable=true
+      KAFKA_CONTROLED_SHUTDOWN_ENABLE: true
+---
+version: "3.8"
+
+services:
+  kafka3:
+    image: wurstmeister/kafka:2.12-2.5.0
+    restart: always
+    hostname: kafka3
+    # https://titangene.github.io/article/networking-in-docker-compose.html
+    network_mode: host
+    ports:
+      - 9092:9092
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    extra_hosts:
+      - "zoo1:192.168.166.128"
+      - "zoo2:192.168.166.129"
+      - "zoo3:192.168.166.130"
+    environment:
+    # 设置BORKERID
+      KAFKA_BROKER_ID: 3
+    # 设置 zookeeper 地址 
+      KAFKA_ZOOKEEPER_CONNECT: "zoo1:2181 zoo2:2181,zoo3:2181"
+    # 设置 ADVERTISED_LISTENERS 等价于 advertised.listeners = OUTSIDE://ec2-xx-xx-xxx-xx.us-west-2.compute.amazonaws.com:9094,INSIDE://:9092
+      # KAFKA_ADVERTISED_LISTENERS: INSIDE://:9092,OUTSIDE://ec2-xx-xx-xxx-xx.us-west-2.compute.amazonaws.com:9094:9094
+    # 设置 LISTENERS  等价于 listeners = OUTSIDE://:9094,INSIDE://:9092
+      # KAFKA_LISTENERS: INSIDE://:9092,OUTSIDE://:9094
+      KAFKA_LISTENERS: PLAINTEXT://192.168.166.130:9092
+      # KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
+    #       inter.broker.listener.name = INSIDE
+    #  KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE  
+      # 设置优雅停机 controlled.shutdown.enable=true
+      KAFKA_CONTROLED_SHUTDOWN_ENABLE: true
