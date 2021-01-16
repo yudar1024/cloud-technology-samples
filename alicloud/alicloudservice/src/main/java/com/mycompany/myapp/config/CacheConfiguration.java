@@ -6,7 +6,6 @@ import org.springframework.cache.interceptor.KeyGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import io.github.jhipster.config.cache.PrefixedKeyGenerator;
 import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.context.annotation.*;
 import java.net.URI;
 import org.redisson.Redisson;
 import org.redisson.config.Config;

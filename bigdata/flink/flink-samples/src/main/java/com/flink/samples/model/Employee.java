@@ -12,4 +12,5 @@ public class Employee {
     public String fname;
     public String lname;
     public int age;
+    public String email;
 }
