@@ -1,0 +1,9 @@
+apiVersion: webapp.my.domain/v1
+kind: CronJob
+metadata:
+  name: cronjob-sample
+  labels: 
+    app: job
+spec:
+  # TODO(user): Add fields here
+  jobowner: "yudar"

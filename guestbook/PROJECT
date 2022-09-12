@@ -1,0 +1,29 @@
+domain: my.domain
+layout:
+- go.kubebuilder.io/v3
+projectName: guestbook
+repo: my.domain/guestbook
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: my.domain
+  group: webapp
+  kind: Guestbook
+  path: my.domain/guestbook/api/v1
+  version: v1
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: my.domain
+  group: webapp
+  kind: CronJob
+  path: my.domain/guestbook/api/v1
+  version: v1
+  webhooks:
+    defaulting: true
+    validation: true
+    webhookVersion: v1
+version: "3"
